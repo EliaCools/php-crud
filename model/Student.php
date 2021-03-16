@@ -5,6 +5,7 @@ class Student
 {
 
 
+
     public function getStudents()
     {
         $pdo = openConnection();
@@ -15,5 +16,3 @@ class Student
     }
 
 }
-
-

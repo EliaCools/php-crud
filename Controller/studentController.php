@@ -1,6 +1,7 @@
 <?php
 declare(strict_types = 1);
 
+
 class studentController
 {
 
@@ -10,12 +11,12 @@ class studentController
         // then the view will actually display them.
 
         //load the view
-        if ($_GET["page"] == "student" && $_GET["action"] == "edit") {
+        if ($_GET["page"] === "student" && $_GET["action"] === "edit") {
             require 'view/newStudent.php';
 
         }
 
-        if ($_GET["page"] == "student" && $_GET["action"] == "overview") {
+        if ($_GET["page"] === "student" && $_GET["action"] === "overview") {
             require 'view/studentOverview.php';
         }
 
