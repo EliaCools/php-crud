@@ -10,6 +10,6 @@ class InfoController
         // then the view will actually display them.
 
         //load the view
-        require 'View/info.php';
+        require 'view/info.php';
     }
 }
