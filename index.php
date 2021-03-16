@@ -1,8 +1,9 @@
 <?php
 declare(strict_types=1);
 
+require 'model/PDO.php';
 //include all your model files here
-require 'Model/User.php';
+require 'model/User.php';
 //include all your controllers here
 require 'Controller/HomepageController.php';
 require 'Controller/InfoController.php';
