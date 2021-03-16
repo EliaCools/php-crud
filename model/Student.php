@@ -1,7 +1,10 @@
 <?php
 
 
-class Student extends Person
+class Student
 {
+
+
+
 
 }
