@@ -1,5 +1,8 @@
 <?php
 declare(strict_types=1);
+require_once '../php-crud/view/includes/view.php';
+
+
 
 //include all your model files here
 require 'Model/User.php';
@@ -17,3 +20,7 @@ if(isset($_GET['page']) && $_GET['page'] === 'info') {
 
 
 $controller->render($_GET, $_POST);
+
+
+
+
