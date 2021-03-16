@@ -8,6 +8,10 @@ class Person {
     protected $phone;
 
 
+    public function __construct()
+    {
+    }
+
     public function PersonReg ($firstName, $lastName, $email, $phone) {
 
     }
