@@ -4,7 +4,8 @@ require_once '../php-crud/view/includes/view.php';
 
 
 
-require 'model/PDO.php';
+require "model/Person.php";
+require "model/PDO.php";
 //include all your model files here
 require 'model/User.php';
 //include all your controllers here
