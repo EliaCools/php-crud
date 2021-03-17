@@ -27,12 +27,12 @@ class StudentLoader
         function fetchDetailed()
         {
             $pdo = openConnection();
-            $handle = $pdo->prepare('SELECT firstName,lastName, email, studentID FROM crud.Student
+            $handle = $pdo->prepare('SELECT concat_ws(" ",firstName,lastName)AS name, email, studentID FROM crud.Student
         where studentID = :id
         ');
-            $handle->bindValue('id', $_GET["ID"]);
+            $handle->bindValue(':id', $_GET["ID"]);
             $handle->execute();
-            return $handle->fetchall();
+            return $handle->fetch();
         }
 
     public function getStudents()
