@@ -3,7 +3,7 @@
 
     <div class="container">
         <h2>Add new student</h2>
-        <form action="/overview.php" method="post">
+        <form action="studentOverview.php" method="post">
             <div class="form-group col-4">
                 <label for="firstName">First name</label>
                 <input type="text" class="form-control" id="firstName" name="firstName">
