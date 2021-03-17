@@ -3,16 +3,15 @@
 
 class Student
 {
+    private $ID;
+    private $firstName;
+    private $lastName;
+    private $email;
+    private $phone;
 
-
-
-    public function getStudents()
-    {
-        $pdo = openConnection();
-       $handle = $pdo->prepare('SELECT * FROM student');
-       $handle->execute();
-       return $handle->fetchAll();
+    public function __construct(){
 
     }
 
 }
+

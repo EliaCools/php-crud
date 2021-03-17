@@ -4,7 +4,7 @@ $studentLoader = new studentLoader;
 if(isset($_POST['run'])){
     if(!empty($_POST["firstName"])&&!empty($_POST["lastName"])){
         $studentLoader->insertPerson($_POST['firstName'],$_POST["lastName"],$_POST["email"],$_POST["phone"]);
-        header('location:/index.php?page=student&action=overview ');
+        header('location:/index.php?page=student&action=overview');
         exit;
     }
 
@@ -39,11 +39,11 @@ var_dump($_POST);
             </div>
             <div class="form-group col-4">
                 <label for="sel1">Select list:</label>
-                <p>options depend on the amount of classes, SO CHANGE INTO FOREACH LOOP</p>
+
                 <select class="form-control col-4" id="sel1">
-                    <option>Lamarr</option>
-                    <option>Giertz</option>
-                    <option>Theano</option>
+            <?php foreach($classes AS $class):?>
+            <option value="<?php echo $class['ID']?>"><?php echo $class['name'] ?></option>
+            <?php endforeach;?>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary" id="submit" name="run">Submit</button>

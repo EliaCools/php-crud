@@ -6,7 +6,7 @@
         $dbhost ="localhost";
         $dbuser ="becode";
         $dbpass ="becode";
-        $db ="becode_class_schema";
+        $db ="crud";
 
         $driverOptions = [
 

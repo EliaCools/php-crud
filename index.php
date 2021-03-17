@@ -3,8 +3,11 @@ declare(strict_types=1);
 
 
 //include all your model files here
+require "model/Student.php";
 //require "model/studentLoader.php";
-require "model/Person.php";
+require "model/Group.php";
+require "model/GroupLoader.php";
+
 require "model/PDO.php";
 require 'model/User.php';
 require 'model/StudentLoader.php';
@@ -23,7 +26,9 @@ if(isset($_GET['page']) && $_GET['page'] === 'info') {
 if(isset($_GET['page']) && $_GET['page'] === 'student') {
     $controller = new studentController();
 }
-
+if(isset($_GET['page']) && $_GET['page'] === 'classes') {
+    $controller = new studentController();
+}
 
 $controller->render($_GET, $_POST);
 
