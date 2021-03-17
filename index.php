@@ -1,8 +1,9 @@
 <?php
 declare(strict_types=1);
-require_once '../php-crud/view/includes/view.php';
+
 
 //include all your model files here
+require 'model/StudentLoader.php';
 require "model/Person.php";
 require "model/PDO.php";
 require 'model/User.php';

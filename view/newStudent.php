@@ -1,9 +1,29 @@
-<?php require 'includes/header.php' ?>
+<?php require 'includes/header.php' ;
+$studentLoader = new studentLoader;
+
+if(isset($_POST['run'])){
+    if(!empty($_POST["firstName"])&&!empty($_POST["lastName"])){
+        $studentLoader->insert($_POST['firstName'],$_POST["lastName"],$_POST["email"],$_POST["phone"]);
+        header('location:/index.php?page=student&action=overview ');
+        exit;
+    }else{
+
+
+    }
+
+
+
+
+
+}
+var_dump($_POST);
+
+?>
 
 
     <div class="container">
-        <h2>Add new student</h2>
-        <form action="/overview.php" method="post">
+        <h2><?php ?></h2>
+        <form  method="post">
             <div class="form-group col-4">
                 <label for="firstName">First name</label>
                 <input type="text" class="form-control" id="firstName" name="firstName">
@@ -14,7 +34,7 @@
             </div>
             <div class="form-group col-4">
                 <label for="email">Email address</label>
-                <input type="text" class="form-control" id="email" name="name">
+                <input type="text" class="form-control" id="email" name="email">
             </div>
             <div class="form-group col-4">
                 <label for="phone">Phone number:</label>
@@ -29,7 +49,7 @@
                     <option>Theano</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+            <button type="submit" class="btn btn-primary" id="submit" name="run">Submit</button>
         </form>
     </div>
 

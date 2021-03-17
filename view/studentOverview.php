@@ -1,5 +1,5 @@
 <?php
-require 'model/StudentLoader.php';
+
 require 'view/includes/header.php';
 ?>
 
@@ -31,4 +31,6 @@ require 'view/includes/header.php';
         </tr>
         <?php endforeach; ?>
     </table>
+    <a href="?page=student&action=newStudent" class="btn btn-success">add new student</a>
+
 </div>
