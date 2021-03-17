@@ -23,13 +23,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link px-4" href="../../index.php?page=student&action=overview">Students</a>
+                        <a class="nav-link px-4" href="?page=student&action=overview">Students</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4" href="../../index.php?page=teacher&action=overview"">Teachers</a>
+                        <a class="nav-link px-4" href="?page=teacher&action=overview"">Teachers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4" href="../../index.php?page=group&action=overview"">Classes</a>
+                        <a class="nav-link px-4" href="?page=group&action=overview"">Classes</a>
                     </li>
 
                 </ul>

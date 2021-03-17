@@ -16,13 +16,13 @@ class StudentLoader
         $handle->execute();
     }
 
-        function fetchAllStudents()
-        {
-            $pdo = openConnection();
-            $handle = $pdo->prepare('SELECT firstName,lastName, email, studentID FROM crud.Student');
-            $handle->execute();
-            return $handle->fetchall();
-        }
+    public function fetchAllStudents(): array
+    {
+        $pdo = openConnection();
+        $handle = $pdo->prepare('SELECT firstName,lastName, email, studentID FROM student');
+        $handle->execute();
+        return $handle->fetchall();
+    }
 
         function fetchDetailed()
         {
@@ -35,10 +35,16 @@ class StudentLoader
             return $handle->fetch();
         }
 
-    public function getStudents()
+    public function updateStudent($firstName, $lastName, $email, $phone): void
     {
         $pdo = openConnection();
-        $handle = $pdo->prepare('SELECT * FROM student');
+        $handle = $pdo->prepare('UPDATE student set firstName =:firstName,lastName =:lastName, email =:email, phone =:phone 
+        WHERE studentID = :id');
+        $handle->bindValue(':id', $_POST['ID']);
+        $handle->bindValue(':firstName', $firstName);
+        $handle->bindValue(':lastName', $lastName);
+        $handle->bindValue(':email', $email);
+        $handle->bindValue(':phone', $phone);
         $handle->execute();
         return $handle->fetchAll();
 
