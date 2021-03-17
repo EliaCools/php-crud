@@ -3,7 +3,7 @@
     function openConnection(): PDO
     {
 
-        $dbhost ="";
+        $dbhost ="localhost";
         $dbuser ="";
         $dbpass ="";
         $db ="becode_class_schema";
