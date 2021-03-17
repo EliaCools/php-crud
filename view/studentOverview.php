@@ -1,6 +1,12 @@
 <?php
-require 'Model/Student.php';
+
+require 'model/StudentLoader.php';
 
 
-$student1 = new Student();
-var_dump($student1->getStudents());
+$studentloader = new studentLoader;
+foreach ($studentloader->fetch() as $student):
+    echo $student["firstName"] ." " . $student["lastName"] . " " . $student["email"] .$student["ID"]  ?>
+    <a href="?page=student&action=overview&ID=<?php echo $student['ID']  ?> ">  edit </a> <br/>
+
+
+<?php endforeach; ?>
