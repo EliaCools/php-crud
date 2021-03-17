@@ -1,5 +1,5 @@
 <?php
-require 'model/StudentLoader.php';
+
 require 'view/includes/header.php';
 ?>
 

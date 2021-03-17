@@ -14,7 +14,7 @@
             </div>
             <div class="form-group col-4">
                 <label for="email">Email address</label>
-                <input type="text" class="form-control" id="email" name="name">
+                <input type="text" class="form-control" id="email" name="email">
             </div>
             <div class="form-group col-4">
                 <label for="phone">Phone number:</label>
