@@ -14,8 +14,8 @@ require 'view/includes/header.php';
         </tr>
         </thead>
         <?php
-        $studentloader = new studentLoader;
-        foreach ($studentloader->fetch() as $student): ?>
+        $studentLoader = new studentLoader;
+        foreach ($studentLoader->fetchAllStudents() as $student): ?>
 
         <tr>
             <td><?php echo $student["firstName"] ; ?> </td>
