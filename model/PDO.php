@@ -6,7 +6,7 @@
         $dbhost ="";
         $dbuser ="";
         $dbpass ="";
-        $db ="";
+        $db ="becode_class_schema";
 
         $driverOptions = [
 
