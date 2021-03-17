@@ -20,7 +20,11 @@ class studentController
 
             require 'view/newStudent.php';
 
-        }elseif ($_GET["page"] == "student" && $_GET["action"] == "overview") {
+
+        }elseif($_GET["page"] == "student" && $_GET["action"] == "newStudent"){
+            require 'view/newStudent.php';
+        }
+        elseif ($_GET["page"] == "student" && $_GET["action"] == "overview") {
             require 'view/studentOverview.php';
         }
 
