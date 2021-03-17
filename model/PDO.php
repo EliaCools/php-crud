@@ -3,9 +3,11 @@
     function openConnection(): PDO
     {
 
-        $dbhost ="localhost";
-        $dbuser ="becode";
-        $dbpass ="becode";
+
+        $dbhost ="";
+        $dbuser ="";
+        $dbpass ="";
+
         $db ="becode_class_schema";
 
         $driverOptions = [
