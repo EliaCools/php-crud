@@ -1,49 +1,40 @@
 <?php
-//require 'model/PDO.php';
-require '../../index.php';
-require 'Model/StudentLoader.php';
-
-$pdo = openConnection();
-$resultStudents= $pdo->query('select * from person
-    inner join student s on person.ID = s.personID');
-$students = new StudentLoader();
-
-?>
+require '../../model/PDO.php';
 require 'header.php';
 
+$pdo = openConnection();
 
-        <table class="table table-striped table-wide">
-    <thead>
+$resultStudents= $pdo->query('select * from person
+    inner join student s on person.ID = s.personID');
+print_r($resultStudents);
+//pre_r($resultStudents->mysql_fetch_row());
+?>
+<div class="row justify-content-center">
+    <table class="table">
+        <thead>
         <tr>
-            <th width="40%">Sport</th>
-            <th width="40%">Name</th>
-            <td colspan="2" width="20%"></td>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Class</th>
+            <th colspan="2">Action</th>
         </tr>
-    </thead>
-    <tbody>
-        <?php foreach($students->fetch() AS $student):?>
+        </thead>
+        <?php
+        while($row=$resultStudents->fetchAll()):
+            ?>
+        <?php endwhile; // end of the loop. ?>
+
         <tr>
-            <td><?php echo htmlspecialchars($student['firstName'] . $student['lastName'])?></td>
-<!--            <td>--><?php //echo htmlspecialchars($user['name'])?><!--</td>-->
+            <td><?php echo $row ['name']; ?> </td>
+            <td><?php echo $row ['las Name']; ?> </td>
+            <td><?php echo $row ['class']; ?> </td>
             <td>
-                <a href="?id=<?php echo $student['id']?>" class="btn btn-primary">Update</a>
+                <!-- <a href="index.php?edit=<?php echo $row ["id"]; ?>"
+                   class="btn btn-info">Edit</a>
+                <a href="overviewStudent.php?delete=<?php echo $row ["id"]; ?>"
+                   class="btn btn-danger">Delete</a> -->>
             </td>
-            <td>
-                <form method="post">
-                    <input type="hidden" name="ID" value="<?php echo $student['ID']?>" />
-                    <input type="submit" name="delete" value="Delete" class="btn btn-danger">
-                </form>
-            </td>
+
         </tr>
-        <?php endforeach;?>
-    </tbody>
-</table>
-
-
-
-
-
-
-<?php
-require 'footer.php';
-
+    </table>
+</div>
