@@ -7,6 +7,7 @@ require "model/studentLoader.php";
 require "model/Person.php";
 require "model/PDO.php";
 require 'model/User.php';
+require 'model/StudentLoader.php';
 //include all your controllers here
 require 'Controller/HomepageController.php';
 require 'Controller/InfoController.php';

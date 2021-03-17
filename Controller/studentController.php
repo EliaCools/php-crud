@@ -15,10 +15,11 @@ class studentController
 
         }
 
-        if ($_GET["page"] == "student" && $_GET["action"] == "overview" && isset($_GET["ID"])  )
+        if ($_GET["page"] == "student" && $_GET["action"] == "overview" && isset($_GET["ID"]) )
         {
-            require 'view/studentDetailed.php';
+
             require 'view/newStudent.php';
+
 
         }elseif($_GET["page"] == "student" && $_GET["action"] == "newStudent"){
             require 'view/newStudent.php';
@@ -27,10 +28,10 @@ class studentController
             require 'view/studentOverview.php';
         }
 
-        if($_GET["page"]=="student" && $_GET["action"]== "studentDetails"){
+        if ($_GET["page"] == "student" && $_GET["action"] == "detailed")
+        {
             require 'view/studentDetailed.php';
         }
-
 
 
    //     if ($_GET["page"] == "student" && $_GET["action"] == "detailedview" && $_GET["action"]=='edit') {
