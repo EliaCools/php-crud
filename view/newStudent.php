@@ -1,20 +1,11 @@
 <?php require 'includes/header.php' ;
 $studentLoader = new studentLoader;
 
-if(isset($_POST['run'])){
-    if(!empty($_POST["firstName"])&&!empty($_POST["lastName"])){
-        $studentLoader->insertPerson($_POST['firstName'],$_POST["lastName"],$_POST["email"],$_POST["phone"]);
-        header('location:/index.php?page=student&action=overview');
-        exit;
-    }
-
-
-
-
-
+if(isset($_POST['run']) && !empty($_POST["firstName"]) && !empty($_POST["lastName"])) {
+    $studentLoader->insertPerson($_POST['firstName'],$_POST["lastName"],$_POST["email"],$_POST["phone"]);
+    header('location:/index.php?page=student&action=overview');
+    exit;
 }
-var_dump($_POST);
-
 ?>
 
 
@@ -46,6 +37,7 @@ var_dump($_POST);
             <?php endforeach;?>
                 </select>
             </div>
+            <input type="hidden" name="ID" value=""/>
             <button type="submit" class="btn btn-primary" id="submit" name="run">Submit</button>
         </form>
     </div>

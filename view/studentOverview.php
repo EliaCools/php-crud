@@ -22,7 +22,7 @@ require 'view/includes/header.php';
             <td><?php echo $student["lastName"]; ?> </td>
             <td><?php echo $student["email"]; ?> </td>
             <td>
-                <a href="?page=student&action=overview&ID=<?php echo $student['studentID']  ?>"
+                <a href="?page=student&action=edit&ID=<?php echo $student['studentID']  ?>"
                    class="btn btn-info">Edit</a>
                 <a href="?page=student&action=overview&delete=<?php echo $student ['studentID']; ?>"
                    class="btn btn-danger">Delete</a>
