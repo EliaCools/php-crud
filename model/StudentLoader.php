@@ -1,4 +1,3 @@
-
 <?php
 
 
@@ -7,14 +6,24 @@ class StudentLoader
 
     function fetch(){
         $pdo = openConnection();
-
         $handle = $pdo->prepare('SELECT firstName,lastName, email, p.ID FROM person p
         INNER JOIN student s ON  p.ID = s.personID
         ');
         $handle->execute();
         return $handle ->fetchall();
-
     }
+
+    function fetchDetailed(){
+        $pdo = openConnection();
+        $handle = $pdo->prepare('SELECT firstName,lastName, email, p.ID FROM person p
+        INNER JOIN student s ON  p.ID = s.personID
+        where p.id = :id
+        ');
+        $handle->bindValue('id',$_GET["ID"]);
+        $handle->execute();
+        return $handle ->fetchall();
+    }
+
 
     public function insert($firstName, $lastName, $email, $phone){
         $pdo = openConnection();
@@ -25,8 +34,10 @@ class StudentLoader
         $handle->bindValue(':lastName', $lastName);
         $handle->bindValue(':email', $email);
         $handle->bindValue(':phone', $phone);
-        return $handle->execute();
+        $handle->execute();
 
     }
+
+
 
 }
