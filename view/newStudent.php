@@ -3,12 +3,9 @@ $studentLoader = new studentLoader;
 
 if(isset($_POST['run'])){
     if(!empty($_POST["firstName"])&&!empty($_POST["lastName"])){
-        $studentLoader->insert($_POST['firstName'],$_POST["lastName"],$_POST["email"],$_POST["phone"]);
+        $studentLoader->insertPerson($_POST['firstName'],$_POST["lastName"],$_POST["email"],$_POST["phone"]);
         header('location:/index.php?page=student&action=overview ');
         exit;
-    }else{
-
-
     }
 
 

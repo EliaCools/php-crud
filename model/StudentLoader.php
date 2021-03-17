@@ -25,7 +25,7 @@ class StudentLoader
     }
 
 
-    public function insert($firstName, $lastName, $email, $phone){
+    public function insertPerson($firstName, $lastName, $email, $phone){
         $pdo = openConnection();
 
         $sql = 'INSERT INTO person (firstName, lastName, email, phone) VALUES (:firstName, :lastName, :email, :phone)';

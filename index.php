@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 
 //include all your model files here
-
+require "model/studentLoader.php";
 require "model/Person.php";
 require "model/PDO.php";
 require 'model/User.php';
