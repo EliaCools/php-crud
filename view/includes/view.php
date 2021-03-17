@@ -1,7 +1,9 @@
 <?php
 require '../../model/PDO.php';
 require 'header.php';
+
 $pdo = openConnection();
+
 $resultStudents= $pdo->query('select * from person
     inner join student s on person.ID = s.personID');
 print_r($resultStudents);
