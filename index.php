@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require_once '../php-crud/view/includes/view.php';
+//include 'View/includes/view.php';
 
 
 
@@ -8,6 +8,7 @@ require "model/Person.php";
 require "model/PDO.php";
 //include all your model files here
 require 'model/User.php';
+require 'model/StudentLoader.php';
 //include all your controllers here
 require 'Controller/HomepageController.php';
 require 'Controller/InfoController.php';
