@@ -15,11 +15,21 @@ class studentController
 
         }
 
-        if ($_GET["page"] == "student" && $_GET["action"] == "overview") {
+        if ($_GET["page"] == "student" && $_GET["action"] == "overview" && isset($_GET["ID"]) )
+        {
+            require 'view/studentOverview.php';
+            require 'view/newStudent.php';
+
+        }elseif ($_GET["page"] == "student" && $_GET["action"] == "overview") {
             require 'view/studentOverview.php';
         }
 
+
+
+
+   //     if ($_GET["page"] == "student" && $_GET["action"] == "detailedview" && $_GET["action"]=='edit') {
+   //         require 'view/studentDetails.php';
+   //         require 'view/newStudent.php.php';
+   //     }
     }
-
-
 }
