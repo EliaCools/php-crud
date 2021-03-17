@@ -2,7 +2,7 @@
 
 
     <div class="container">
-        <h2>Add new student</h2>
+        <h2>Add new Teacher</h2>
         <form action="/overview.php" method="post">
             <div class="form-group col-4">
                 <label for="firstName">First name</label>

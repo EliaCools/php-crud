@@ -10,7 +10,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark shadow">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
         <div class="container-fluid">
             <!--            toggle navbar button-->
             <a class="navbar-brand" href="#">Navbar</a>
