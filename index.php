@@ -1,13 +1,12 @@
 <?php
 declare(strict_types=1);
-//include 'View/includes/view.php';
+
 
 //include all your model files here
 
 require "model/Person.php";
 require "model/PDO.php";
 require 'model/User.php';
-require 'model/StudentLoader.php';
 //include all your controllers here
 require 'Controller/HomepageController.php';
 require 'Controller/InfoController.php';
