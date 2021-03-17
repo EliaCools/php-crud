@@ -24,7 +24,10 @@ class studentController
             require 'view/studentOverview.php';
         }
 
-
+        if ($_GET["page"] == "student" && $_GET["action"] == "detailed")
+        {
+            require 'view/detailed.php';
+        }
 
 
    //     if ($_GET["page"] == "student" && $_GET["action"] == "detailedview" && $_GET["action"]=='edit') {

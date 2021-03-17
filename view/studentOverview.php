@@ -26,6 +26,8 @@ require 'view/includes/header.php';
                    class="btn btn-info">Edit</a>
                 <a href="?page=student&action=overview&delete=<?php echo $student ['ID']; ?>"
                    class="btn btn-danger">Delete</a>
+                <a href="?page=student&action=details&ID=<?php echo $student ['ID']; ?>"
+                   class="btn btn-success"">Details</a>
 
             </td>
         </tr>

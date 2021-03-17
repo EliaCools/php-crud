@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require_once '../php-crud/view/includes/view.php';
+
 
 //include all your model files here
 require "model/Person.php";
