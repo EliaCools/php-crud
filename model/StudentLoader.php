@@ -1,5 +1,5 @@
 <?php
-require_once 'PersonLoader.php';
+require 'PersonLoader.php';
 
 class StudentLoader extends PersonLoader
 {
