@@ -15,6 +15,8 @@ require 'model/StudentLoader.php';
 require 'Controller/HomepageController.php';
 require 'Controller/InfoController.php';
 require 'Controller/studentController.php';
+require 'Controller/teacherController.php';
+require 'Controller/groupController.php';
 
 //you could write a simple IF here based on some $_GET or $_POST vars, to choose your controller
 //this file should never be more than 20 lines of code!
@@ -26,9 +28,13 @@ if(isset($_GET['page']) && $_GET['page'] === 'info') {
 if(isset($_GET['page']) && $_GET['page'] === 'student') {
     $controller = new studentController();
 }
-if(isset($_GET['page']) && $_GET['page'] === 'classes') {
-    $controller = new studentController();
+if(isset($_GET['page']) && $_GET['page'] === 'teacher') {
+    $controller = new teacherController();
 }
+if(isset($_GET['page']) && $_GET['page'] === 'group') {
+    $controller = new groupController();
+}
+
 
 $controller->render($_GET, $_POST);
 

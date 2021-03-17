@@ -17,7 +17,6 @@ class studentController
 
         if ($_GET["page"] == "student" && $_GET["action"] == "overview" && isset($_GET["ID"]) )
         {
-
             require 'view/newStudent.php';
 
 

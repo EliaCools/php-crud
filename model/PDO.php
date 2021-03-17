@@ -2,11 +2,11 @@
 
     function openConnection(): PDO
     {
-
-        $dbhost ="localhost";
-        $dbuser ="becode";
-        $dbpass ="becode";
+        $dbhost ="";
+        $dbuser ="";
+        $dbpass ="";
         $db ="crud";
+
 
         $driverOptions = [
 
