@@ -10,18 +10,18 @@ require 'includes/header.php'
             <h1>Student Information</h1>
         </div>
 
-        <?php $studentDetail= new studentLoader
+        <?php //$studentDetail= new studentLoader
 
         ?>
 
         <table class='table table-hover  table-bordered'>
             <tr>
                 <td>Name</td>
-                <td><?php echo $studentDetail->fetchDetailed()['name'];  ?></td>
+                <td><?php echo $studentLoader->fetchDetailed()['name'];  ?></td>
             </tr>
             <tr>
                 <td>Email</td>
-                <td><?php echo $studentDetail->fetchDetailed()['email']; ?></td>
+                <td><?php echo $studentLoader->fetchDetailed()['email']; ?></td>
             </tr>
             <tr>
                 <td>Class</td>
@@ -33,10 +33,10 @@ require 'includes/header.php'
             </tr>
             
         </table>
-        <a href="?page=student&action=edit&ID= <?php echo $studentDetail->fetchDetailed()['studentID']  ?>"
+        <a href="?page=student&action=edit&ID= <?php echo $studentLoader->fetchDetailed()['studentID']  ?>"
            class="btn btn-info">Edit</a>
         <form method="post" class=" d-inline ">
-            <input type="hidden" name="id" value=<?php echo $studentDetail->fetchDetailed()['studentID']?> >
+            <input type="hidden" name="id" value=<?php echo $studentLoader->fetchDetailed()['studentID']?> >
             <input type="submit" name="delete" value="Delete" class="btn btn-secondary ">
         </form>
         <a href="?page=student&action=overview"
