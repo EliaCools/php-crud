@@ -19,7 +19,7 @@ class GroupLoader
     {
         $pdo = openConnection();
 
-        $sql = 'SELECT className, subject, classLocation FROM crud.class';
+        $sql = 'SELECT className, subject, classLocation, classID FROM class';
         $handle = $pdo->prepare($sql);
         $handle->execute();
         return $handle->fetchAll();
@@ -28,7 +28,7 @@ class GroupLoader
     public function fetchDetailed() : array
     {
         $pdo = openConnection();
-        $sql = 'SELECT * from crud.class';
+        $sql = 'SELECT * from class';
         $handle = $pdo->prepare($sql);
 
 
@@ -37,24 +37,14 @@ class GroupLoader
     public function updateGroup(Group $group) : array
     {
         $pdo = openConnection();
-        $sql = 'UPDATE crud.class SET className = :className ,classLocation = :location, subject = :subject 
+        $sql = 'UPDATE class SET className = :className ,classLocation = :location, subject = :subject 
         WHERE classID= :ID';
         $handle = $pdo->prepare($sql);
         $handle->bindValue(':className',$group->getName());
         $handle->bindValue(':location',$group->getLocation());
         $handle->bindValue(':subject',$group->getSubject());
-        $handle->bindValue(':ID',$_POST['ID']);
+        $handle->bindValue(':ID',$group->getID());
         $handle->execute();
     }
-
-    public function deleteGroup():void
-    {
-        $pdo = openConnection();
-        $handle = $pdo->prepare('DELETE FROM crud.class WHERE classID = :id ');
-        $handle->bindValue(':id',$_POST['ID']);
-        $handle->execute();
-    }
-
-
 
 }
