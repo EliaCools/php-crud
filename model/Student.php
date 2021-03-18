@@ -4,10 +4,10 @@
 class Student
 {
 
-    private string $firstName;
-    private string $lastName;
-    private string $email;
-    private int $phone;
+    protected string $firstName;
+    protected string $lastName;
+    protected string $email;
+    protected int $phone;
 
     public function __construct(string $firstName, string $lastName, string $email, int $phone)
     {

@@ -51,7 +51,7 @@ class StudentLoader
     }
     public function exportAll()
     {
-        $pdo = openConnection()->prepare('SELECT studentID, firstName,lastName, email FROM crud.student');
+        $pdo = openConnection()->prepare('SELECT studentID, firstName,lastName, email FROM student');
         $pdo->execute();
         return $pdo->fetch(PDO::FETCH_ASSOC);
     }
