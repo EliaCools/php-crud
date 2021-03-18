@@ -46,7 +46,5 @@ class StudentLoader
         $handle->bindValue(':email', $email);
         $handle->bindValue(':phone', $phone);
         $handle->execute();
-        return $handle->fetchAll();
-
     }
 }
