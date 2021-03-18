@@ -31,11 +31,11 @@
             </tr>
         <?php endforeach; ?>
     </table>
-    <div class="container"
     <form method="post" action="/model/export.php">
         <input type="submit" name="teacherExport" value="CSV Export" class="btn btn-warning">
+        <a href="?page=teacher&action=newTeacher" class="btn btn-primary">Add New Teacher</a>
     </form>
-    <a href="?page=teacher&action=newTeacher" class="btn btn-primary">Add New Teacher</a>
-    </form>
+
+
 
 </div>

@@ -28,7 +28,7 @@
         <?php endforeach;?>
     </table>
     <form method="post" action="/model/export.php">
-        <input type="submit" name="studentExport" value="CSV Export" class="btn btn-secondary">
+        <input type="submit" name="studentExport" value="CSV Export" class="btn btn-warning">
+        <a href="?page=student&action=newStudent" class="btn btn-success">Add New Student</a>
     </form>
-    <a href="?page=student&action=newStudent" class="btn btn-success">add new student</a>
 </div>
