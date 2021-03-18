@@ -14,7 +14,7 @@ require 'includes/header.php'
 
         ?>
 
-        <table class='table table-hover table-responsive table-bordered'>
+        <table class='table table-hover  table-bordered'>
             <tr>
                 <td>Name</td>
                 <td><?php echo $studentDetail->fetchDetailed()['name'];  ?></td>
