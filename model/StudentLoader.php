@@ -57,9 +57,9 @@ class StudentLoader
     }
 
     public function deleteStudent(){
-    $pdo = openConnection();
-    $handle = $pdo->prepare('DELETE FROM student WHERE studentID = :id ');
-    $handle->bindValue(':id',$_POST['id']);
-    $handle->execute();
+        $pdo = openConnection();
+        $handle = $pdo->prepare('DELETE FROM student WHERE studentID = :id ');
+        $handle->bindValue(':id',$_POST['id']);
+        $handle->execute();
     }
 }
