@@ -56,6 +56,8 @@ class studentController
         if ($_GET["action"] === "details") {
 
             $studentDetailed = $studentLoader->fetchDetailed();
+            $studentGroup = $studentLoader->getMyGroup();
+            $studentTeacher = $studentLoader->getMyTeacher();
             require 'view/includes/header.php';
             require 'view/studentDetailed.php';
             require 'view/includes/footer.php';

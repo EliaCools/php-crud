@@ -15,11 +15,11 @@
             </tr>
             <tr>
                 <td>Class</td>
-                <td><a href="#"><?php echo 'class here'; ?></a></td>
+                <td><a href="#"><?php echo $studentGroup['className'] ?? 'no class'; ?></a></td>
             </tr>
             <tr>
                 <td>Assigned Teacher</td>
-                <td><a href="#"><?php echo 'connect with Teacher';  ?></a></td>
+                <td><a href="#"><?php echo $studentTeacher['fullName'] ?? 'no teacher';  ?></a></td>
             </tr>
         </table>
         <a href="?page=student&action=edit&ID= <?php echo $studentDetailed['studentID']  ?>"
