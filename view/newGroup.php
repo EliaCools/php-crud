@@ -1,5 +1,3 @@
-<?php require 'includes/header.php' ?>
-
 
     <div class="container">
         <h2>Add new Class</h2>
@@ -23,5 +21,3 @@
             <button type="submit" class="btn btn-primary" id="submit">Submit</button>
         </form>
     </div>
-
-<?php require 'includes/footer.php' ?>
