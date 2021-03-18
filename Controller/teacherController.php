@@ -1,18 +1,19 @@
 <?php
+declare(strict_types = 1);
 
 class teacherController
 {
+
     public function render(array $GET, array $POST)
     {
+
         $teacherLoader = new TeacherLoader();
         $teachers = $teacherLoader->fetchAllTeachers();
 
         if (isset($_POST['delete'])) {
-            //if("check for class"){
                 $teacherLoader->deleteTeacher();
                 header("Location:?page=teacher&action=overview");
                 exit();
-            //}
         }
 
         //Edit and Add new

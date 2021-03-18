@@ -1,6 +1,5 @@
 <?php
 
-
 class StudentLoader
 {
     public function insertPerson(Student $student)
@@ -49,14 +48,9 @@ class StudentLoader
         $handle->execute();
 
     }
-    public function exportAll()
-    {
-        $pdo = openConnection()->prepare('SELECT studentID, firstName,lastName, email FROM student');
-        $pdo->execute();
-        return $pdo->fetch(PDO::FETCH_ASSOC);
-    }
 
-    public function deleteStudent(){
+    public function deleteStudent():void
+    {
         $pdo = openConnection();
         $handle = $pdo->prepare('DELETE FROM crud.student WHERE studentID = :id ');
         $handle->bindValue(':id',$_POST['id']);

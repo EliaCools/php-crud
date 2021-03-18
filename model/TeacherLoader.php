@@ -1,12 +1,10 @@
 <?php
 
-
 class TeacherLoader
 {
     public function insertTeacher(Teacher $teacher)
     {
         $pdo = openConnection();
-
         $sql = 'INSERT INTO crud.teacher (firstName, lastName, email, phone) VALUES (:firstName, :lastName, :email, :phone)';
         $handle = $pdo->prepare($sql);
         $handle->bindValue(':firstName', $teacher->getFirstName());
@@ -16,15 +14,15 @@ class TeacherLoader
         $handle->execute();
     }
 
-    function fetchAllTeachers()
+    public function fetchAllTeachers()
     {
         $pdo = openConnection();
-        $handle = $pdo->prepare('SELECT firstName,lastName, email, teacherID FROM crud.teacher');
+        $handle = $pdo->prepare('SELECT firstName,lastName, email, teacherID FROM crud.Teacher');
         $handle->execute();
         return $handle->fetchall();
     }
 
-    function fetchDetailed()
+    public function fetchDetailed()
     {
         $pdo = openConnection();
         $handle = $pdo->prepare('SELECT firstName,lastName, email, teacherID FROM crud.teacher
@@ -38,10 +36,9 @@ class TeacherLoader
     public function getTeachers()
     {
         $pdo = openConnection();
-        $handle = $pdo->prepare('SELECT * FROM crud.teacher');
+        $handle = $pdo->prepare('SELECT * FROM crud.Teacher');
         $handle->execute();
         return $handle->fetchAll();
-
     }
 
 }
