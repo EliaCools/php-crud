@@ -7,8 +7,7 @@ class StudentLoader
     {
         $pdo = openConnection();
 
-        $sql = 'INSERT INTO crud.Student (firstName, lastName, email, phone) 
-                VALUES (:firstName, :lastName, :email, :phone)';
+        $sql = 'INSERT INTO student (firstName, lastName, email, phone) VALUES (:firstName, :lastName, :email, :phone)';
         $handle = $pdo->prepare($sql);
         $handle->bindValue(':firstName', $firstName);
         $handle->bindValue(':lastName', $lastName);
@@ -48,6 +47,7 @@ class StudentLoader
         $handle->bindValue(':email', $email);
         $handle->bindValue(':phone', $phone);
         $handle->execute();
+
     }
     public function exportAll()
     {
