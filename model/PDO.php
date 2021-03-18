@@ -3,7 +3,7 @@
 function openConnection(): PDO
 {
     $dbhost = "localhost";
-    $dbuser = "";
+    $dbuser = "root";
     $dbpass = "";
     $db = "crud";
 

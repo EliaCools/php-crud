@@ -19,7 +19,7 @@ class GroupLoader
     {
         $pdo = openConnection();
 
-        $sql = 'SELECT className, subject, classLocation FROM class';
+        $sql = 'SELECT className, subject, classLocation, classID FROM class';
         $handle = $pdo->prepare($sql);
         $handle->execute();
         return $handle->fetchAll();
