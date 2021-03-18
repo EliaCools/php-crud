@@ -7,7 +7,7 @@ class StudentLoader
     {
         $pdo = openConnection();
 
-        $sql = 'INSERT INTO crud.Student (firstName, lastName, email, phone) VALUES (:firstName, :lastName, :email, :phone)';
+        $sql = 'INSERT INTO student (firstName, lastName, email, phone) VALUES (:firstName, :lastName, :email, :phone)';
         $handle = $pdo->prepare($sql);
         $handle->bindValue(':firstName', $firstName);
         $handle->bindValue(':lastName', $lastName);
@@ -27,7 +27,7 @@ class StudentLoader
     function fetchDetailed()
     {
         $pdo = openConnection();
-        $handle = $pdo->prepare('SELECT concat_ws(" ",firstName,lastName)AS name, email, studentID FROM crud.Student
+        $handle = $pdo->prepare('SELECT concat_ws(" ",firstName,lastName)AS name, email, studentID FROM student
         where studentID = :id
         ');
         $handle->bindValue(':id', $_GET["ID"]);
@@ -47,4 +47,12 @@ class StudentLoader
         $handle->bindValue(':phone', $phone);
         $handle->execute();
     }
+
+    public function deleteStudent(){
+    $pdo = openConnection();
+    $handle = $pdo->prepare('DELETE FROM student WHERE studentID = :id ');
+    $handle->bindValue(':id',$_POST['id']);
+    $handle->execute();
+    }
 }
+

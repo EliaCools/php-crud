@@ -1,6 +1,7 @@
 <?php
 
 require 'view/includes/header.php';
+var_dump($_POST);
 ?>
 
 <div class="justify-content-center">
@@ -24,14 +25,23 @@ require 'view/includes/header.php';
             <td>
                 <a href="?page=student&action=edit&ID=<?php echo $student['studentID']  ?>"
                    class="btn btn-info">Edit</a>
-                <a href="?page=student&action=overview&delete=<?php echo $student ['studentID']; ?>"
-                   class="btn btn-danger">Delete</a>
+                <form method="post" class=" d-inline ">
+                    <input type="hidden" name="id" value=<?php echo $student ['studentID']?> >
+                    <input type="submit" name="delete" value="Delete" class="btn btn-secondary ">
+                </form>
                 <a href="?page=student&action=details&ID=<?php echo $student ['studentID']; ?>"
                    class="btn btn-success"">Details</a>
 
             </td>
         </tr>
-        <?php endforeach; ?>
+        <?php
+            if(isset($_POST['delete'])){
+                $studentLoader->deleteStudent();
+            header("Location:?page=student&action=overview");
+            exit();}
+        endforeach;
+
+        ?>
     </table>
     <a href="?page=student&action=newStudent" class="btn btn-success">add new student</a>
 
