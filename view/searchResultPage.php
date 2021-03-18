@@ -1,11 +1,5 @@
 <?php
 require 'view/includes/header.php';
-
-var_dump($search);
-echo '<br>';
-
-echo '<br>';
-var_dump($searchResult);
 ?>
 
 <div class="justify-content-center">
@@ -28,7 +22,7 @@ var_dump($searchResult);
                 <td>
 
                     <a href="?page=student&action=details&ID=<?php echo $result ['studentID']; ?>"
-                       class="btn btn-success"">Details</a>
+                       class="btn btn-success">Details</a>
 
                 </td>
             </tr>
