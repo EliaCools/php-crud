@@ -8,11 +8,12 @@ if(isset($_POST['run']) && !empty($_POST["firstName"]) && !empty($_POST["lastNam
 }
 
 ?>
-
+<h2>Edit Student</h2>
 <div class="container">
     <h2><?php ?></h2>
     <form  method="post">
         <div class="form-group col-4">
+
             <label for="firstName">First name</label>
             <input type="text" class="form-control" id="firstName" name="firstName" >
         </div>

@@ -24,7 +24,7 @@
                     <input type="submit" name="delete" value="Delete" class="btn btn-secondary ">
                 </form>
                 <a href="?page=student&action=details&ID=<?php echo $student ['studentID']; ?>"
-                   class="btn btn-success"">Details</a>
+                   class="btn btn-success">Details</a>
 
             </td>
         </tr>
