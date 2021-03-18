@@ -35,12 +35,19 @@ require 'includes/header.php'
         </table>
         <a href="?page=student&action=edit&ID= <?php echo $studentDetail->fetchDetailed()['studentID']  ?>"
            class="btn btn-info">Edit</a>
-        <a href="?page=student&action=details&delete=<?php echo $studentDetail->fetchDetailed()['studentID']; ?>"
-           class="btn btn-danger">Delete</a>
+        <form method="post" class=" d-inline ">
+            <input type="hidden" name="id" value=<?php echo $studentDetail->fetchDetailed()['studentID']?> >
+            <input type="submit" name="delete" value="Delete" class="btn btn-secondary ">
+        </form>
         <a href="?page=student&action=overview"
            class="btn btn-success">Back to Overview</a>
     </div> <!-- end .container -->
 
-
+<?php
+if(isset($_POST['delete'])){
+    $studentDetail->deleteStudent();
+    header("Location:?page=student&action=overview");
+    exit();}
+?>
 
 <?php require 'includes/footer.php' ?>
