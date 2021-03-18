@@ -1,6 +1,5 @@
-<?php var_dump($_POST); ?>
     <div class="container">
-        <h2>Add new Class</h2>
+        <h2>Add New Group</h2>
         <form method="post">
             <div class="form-group col-4">
                 <label for="className">Class Name</label>

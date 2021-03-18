@@ -6,7 +6,7 @@ class Group
     private string $name;
     private string $location;
     private string $subject;
-    private int $ID;
+
 
 
     public function __construct(string $name, string $location, string $subject)
