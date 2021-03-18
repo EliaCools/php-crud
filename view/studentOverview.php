@@ -43,6 +43,9 @@ var_dump($_POST);
 
         ?>
     </table>
+    <form method="post" action="/model/export.php">
+        <input type="submit" name="studentExport" value="CSV Export" class="btn btn-secondary">
+    </form>
     <a href="?page=student&action=newStudent" class="btn btn-success">add new student</a>
 
 </div>

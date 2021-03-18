@@ -19,7 +19,8 @@ class StudentLoader
     public function fetchAllStudents(): array
     {
         $pdo = openConnection();
-        $handle = $pdo->prepare('SELECT firstName,lastName, email, studentID FROM student');
+        $handle = $pdo->prepare('SELECT studentID, firstName,lastName, email 
+                                        FROM student');
         $handle->execute();
         return $handle->fetchall();
     }
@@ -46,6 +47,13 @@ class StudentLoader
         $handle->bindValue(':email', $email);
         $handle->bindValue(':phone', $phone);
         $handle->execute();
+
+    }
+    public function exportAll()
+    {
+        $pdo = openConnection()->prepare('SELECT studentID, firstName,lastName, email FROM student');
+        $pdo->execute();
+        return $pdo->fetch(PDO::FETCH_ASSOC);
     }
 
     public function deleteStudent(){
@@ -55,4 +63,3 @@ class StudentLoader
     $handle->execute();
     }
 }
-
