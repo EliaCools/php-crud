@@ -10,25 +10,22 @@ class studentController
         // then the view will actually display them.
 
         //load the view
-        if ($_GET["page"] == "student" && $_GET["action"] == "edit") {
+
+
+        if ( $_GET["action"] == "edit") {
            // require header
             //require 'view/studentDetailed.php'
             require 'view/editStudent.php';
             //require footer
-
         }
-        if ($_GET["page"] == "student" && $_GET["action"] == "overview" && isset($_GET["ID"]) )
-        {
-            require 'view/newStudent.php';
-
-        }elseif($_GET["page"] == "student" && $_GET["action"] == "newStudent"){
+        if( $_GET["action"] == "newStudent"){
             require 'view/newStudent.php';
         }
-        elseif ($_GET["page"] == "student" && $_GET["action"] == "overview") {
+        if ( $_GET["action"] == "overview") {
             require 'view/studentOverview.php';
         }
 
-        if ($_GET["page"] == "student" && $_GET["action"] == "details")
+        if ($_GET["action"] == "details")
         {
             require 'view/studentDetailed.php';
         }
