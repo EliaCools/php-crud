@@ -7,7 +7,7 @@ class SearchBarLoader
     {
 
         $pdo = openConnection();
-        $handle = $pdo->prepare("SELECT firstName,lastName, email 
+        $handle = $pdo->prepare("SELECT firstName,lastName, email, studentID 
                                         FROM crud.student 
                                         WHERE firstName LIKE :searchValue
                                         ");
