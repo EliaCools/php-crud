@@ -1,5 +1,5 @@
 <?php
-require 'model/teacherLoader.php';
+
 class teacherController
 {
     public function render(array $GET, array $POST)

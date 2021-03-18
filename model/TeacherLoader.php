@@ -3,23 +3,23 @@
 
 class TeacherLoader
 {
-    public function insertTeacher($firstName, $lastName, $email, $phone)
+    public function insertTeacher(Teacher $teacher)
     {
         $pdo = openConnection();
 
-        $sql = 'INSERT INTO crud.Teacher (firstName, lastName, email, phone) VALUES (:firstName, :lastName, :email, :phone)';
+        $sql = 'INSERT INTO crud.teacher (firstName, lastName, email, phone) VALUES (:firstName, :lastName, :email, :phone)';
         $handle = $pdo->prepare($sql);
-        $handle->bindValue(':firstName', $firstName);
-        $handle->bindValue(':lastName', $lastName);
-        $handle->bindValue(':email', $email);
-        $handle->bindValue(':phone', $phone);
+        $handle->bindValue(':firstName', $teacher->getFirstName());
+        $handle->bindValue(':lastName', $teacher->getLastName());
+        $handle->bindValue(':email', $teacher->getEmail());
+        $handle->bindValue(':phone', $teacher->getPhone());
         $handle->execute();
     }
 
     function fetchAllTeachers()
     {
         $pdo = openConnection();
-        $handle = $pdo->prepare('SELECT firstName,lastName, email, teacherID FROM crud.Teacher');
+        $handle = $pdo->prepare('SELECT firstName,lastName, email, teacherID FROM crud.teacher');
         $handle->execute();
         return $handle->fetchall();
     }
@@ -27,7 +27,7 @@ class TeacherLoader
     function fetchDetailed()
     {
         $pdo = openConnection();
-        $handle = $pdo->prepare('SELECT firstName,lastName, email, teacherID FROM crud.Teacher
+        $handle = $pdo->prepare('SELECT firstName,lastName, email, teacherID FROM crud.teacher
         where teacherID = :id
         ');
         $handle->bindValue('id', $_GET["ID"]);
@@ -38,7 +38,7 @@ class TeacherLoader
     public function getTeachers()
     {
         $pdo = openConnection();
-        $handle = $pdo->prepare('SELECT * FROM crud.Teacher');
+        $handle = $pdo->prepare('SELECT * FROM crud.teacher');
         $handle->execute();
         return $handle->fetchAll();
 

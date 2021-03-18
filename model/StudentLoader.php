@@ -36,16 +36,16 @@ class StudentLoader
         return $handle->fetch();
     }
 
-    public function updateStudent($firstName, $lastName, $email, $phone): void
+    public function updateStudent(Student $student): void
     {
         $pdo = openConnection();
         $handle = $pdo->prepare('UPDATE crud.student set firstName =:firstName,lastName =:lastName, email =:email, phone =:phone 
         WHERE studentID = :id');
         $handle->bindValue(':id', $_POST['ID']);
-        $handle->bindValue(':firstName', $firstName);
-        $handle->bindValue(':lastName', $lastName);
-        $handle->bindValue(':email', $email);
-        $handle->bindValue(':phone', $phone);
+        $handle->bindValue(':firstName', $student->getFirstName());
+        $handle->bindValue(':lastName', $student->getLastName());
+        $handle->bindValue(':email', $student->getEmail());
+        $handle->bindValue(':phone', $student->getPhone());
         $handle->execute();
 
     }
