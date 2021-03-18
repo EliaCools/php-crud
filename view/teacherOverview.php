@@ -32,7 +32,7 @@
             </tr>
         <?php endforeach; ?>
     </table>
-    <div class="container"
+    <div class="container">
     <form method="post" action="/model/export.php">
         <input type="submit" name="teacherExport" value="CSV Export" class="btn btn-warning">
     </form>
