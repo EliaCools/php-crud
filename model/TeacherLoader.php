@@ -35,16 +35,16 @@ class TeacherLoader
         return $handle->fetchall();
     }
 
-    public function updateTeacher($firstName, $lastName, $email, $phone): void
+    public function updateTeacher(Teacher $teacher): void
     {
         $pdo = openConnection();
         $handle = $pdo->prepare('UPDATE crud.teacher set firstName =:firstName,lastName =:lastName, email =:email, phone =:phone 
         WHERE teacherID = :id');
         $handle->bindValue(':id', $_POST['ID']);
-        $handle->bindValue(':firstName', $firstName);
-        $handle->bindValue(':lastName', $lastName);
-        $handle->bindValue(':email', $email);
-        $handle->bindValue(':phone', $phone);
+        $handle->bindValue(':firstName', $teacher->getFirstName());
+        $handle->bindValue(':lastName', $teacher->getLastName());
+        $handle->bindValue(':email', $teacher->getEmail());
+        $handle->bindValue(':phone', $teacher->getPhone());
         $handle->execute();
     }
 
