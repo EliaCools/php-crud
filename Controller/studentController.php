@@ -18,7 +18,7 @@ class studentController
         //Edit and Add new
         if (isset($_POST['run']) && !empty($_POST["firstName"]) && !empty($_POST["lastName"])) {
             $student = new student(htmlspecialchars($_POST['firstName']), htmlspecialchars($_POST["lastName"]),
-                        htmlspecialchars($_POST["email"]), intval($_POST["phone"]));
+                        htmlspecialchars($_POST["email"]), intval($_POST["phone"]),intval($_POST["class"]), );
             if (!empty($_POST['ID'])) {
                 $studentLoader->updateStudent($student);
             } else {
@@ -52,6 +52,7 @@ class studentController
             $studentDetailed = $studentLoader->fetchDetailed();
             $studentGroup = $studentLoader->getMyGroup();
             $studentTeacher = $studentLoader->getMyTeacher();
+
             require 'view/includes/header.php';
             require 'view/studentDetailed.php';
             require 'view/includes/footer.php';
