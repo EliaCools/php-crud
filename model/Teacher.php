@@ -1,20 +1,13 @@
 <?php
 
 
-class Teacher
+class Teacher extends Student
 {
-    private int $ID;
-    private string $firstName;
-    private string $lastName;
-    private string $email;
-    private int $phone;
 
-    public function __construct($ID,$fName,$lName,$email,$phone){
-        $this->ID = $ID;
-        $this->firstName = $fName;
-        $this->lastName = $lName;
-        $this->email = $email;
-        $this->phone = $phone;
-
+    public function __construct(string $firstName, string $lastName, string $email, int $phone)
+    {
+        parent::__construct($firstName, $lastName, $email, $phone);
     }
+
+
 }

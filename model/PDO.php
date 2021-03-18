@@ -3,8 +3,8 @@
     function openConnection(): PDO
     {
         $dbhost ="localhost";
-        $dbuser ="becode";
-        $dbpass ="becode";
+        $dbuser ="root";
+        $dbpass ="";
         $db ="crud";
 
 
@@ -17,6 +17,4 @@
 
         return new PDO('mysql:host=' . $dbhost . ';dbname=' . $db, $dbuser, $dbpass, $driverOptions);
     }
-
-//$pdo = openConnection();
 
