@@ -26,10 +26,7 @@ var_dump($searchResult);
                 <td><?php echo $result["lastName"]; ?> </td>
                 <td><?php echo $result["email"]; ?> </td>
                 <td>
-                    <a href="?page=student&action=edit&ID=<?php echo $result['studentID']  ?>"
-                       class="btn btn-info">Edit</a>
-                    <a href="?page=student&action=overview&delete=<?php echo $result ['studentID']; ?>"
-                       class="btn btn-danger">Delete</a>+
+
                     <a href="?page=student&action=details&ID=<?php echo $result ['studentID']; ?>"
                        class="btn btn-success"">Details</a>
 
