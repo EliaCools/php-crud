@@ -6,16 +6,17 @@ class Group
     private string $name;
     private string $location;
     private string $subject;
+    private int $ID;
 
 
-
-    public function __construct($name,$location,$subject){
-
-        $this->name=$name;
-        $this->location=$location;
-        $this->subject=$subject;
-
+    public function __construct(string $name, string $location, string $subject)
+    {
+        $this->name = $name;
+        $this->location = $location;
+        $this->subject = $subject;
     }
+
+
     public function getName(): string
     {
         return $this->name;
