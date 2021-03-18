@@ -6,13 +6,14 @@ class StudentLoader
     {
         $pdo = openConnection();
 
-        $sql = 'INSERT INTO crud.student (firstName, lastName, email, phone) 
-                VALUES (:firstName, :lastName, :email, :phone)';
+        $sql = 'INSERT INTO crud.student (firstName, lastName, email, phone, classID) 
+                VALUES (:firstName, :lastName, :email, :phone, :classID)';
         $handle = $pdo->prepare($sql);
         $handle->bindValue(':firstName', $student->getFirstName());
         $handle->bindValue(':lastName', $student->getLastName());
         $handle->bindValue(':email', $student->getEmail());
         $handle->bindValue(':phone', $student->getPhone());
+        $handle->bindValue(':classID',$student->getClassID());
         $handle->execute();
     }
 
@@ -38,13 +39,14 @@ class StudentLoader
     public function updateStudent(Student $student): void
     {
         $pdo = openConnection();
-        $handle = $pdo->prepare('UPDATE crud.student set firstName =:firstName,lastName =:lastName, email =:email, phone =:phone 
+        $handle = $pdo->prepare('UPDATE crud.student set firstName =:firstName,lastName =:lastName, email =:email, phone =:phone, classID =:classID 
         WHERE studentID = :id');
         $handle->bindValue(':id', $_POST['ID']);
         $handle->bindValue(':firstName', $student->getFirstName());
         $handle->bindValue(':lastName', $student->getLastName());
         $handle->bindValue(':email', $student->getEmail());
         $handle->bindValue(':phone', $student->getPhone());
+        $handle->bindValue(':classID',$student->getClassID());
         $handle->execute();
     }
 

@@ -3,25 +3,20 @@
 
 class Group
 {
-    private int $groupID;
     private string $name;
     private string $location;
     private string $subject;
 
 
 
-    public function __construct($name,$location,$subject){
-
-
-        $this->name=$name;
-        $this->location=$location;
-        $this->subject=$subject;
-
-    }
-    public function getGroupID(): int
+    public function __construct(string $name, string $location, string $subject)
     {
-        return $this->groupID;
+        $this->name = $name;
+        $this->location = $location;
+        $this->subject = $subject;
     }
+
+
     public function getName(): string
     {
         return $this->name;

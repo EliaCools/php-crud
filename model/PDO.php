@@ -3,8 +3,8 @@
 function openConnection(): PDO
 {
     $dbhost = "localhost";
-    $dbuser = "";
-    $dbpass = "";
+    $dbuser = "becode";
+    $dbpass = "becode";
     $db = "crud";
 
     $driverOptions = [

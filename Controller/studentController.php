@@ -6,7 +6,11 @@ class studentController
 
     public function render(array $GET, array $POST) : void
     {
-
+        function sanitize($data): string
+        {     $data = trim($data);     $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
         $studentLoader = new studentLoader;
         $allstudents = $studentLoader->fetchAllStudents();
 
@@ -17,8 +21,9 @@ class studentController
         }
         //Edit and Add new
         if (isset($_POST['run']) && !empty($_POST["firstName"]) && !empty($_POST["lastName"])) {
-            $student = new student(htmlspecialchars($_POST['firstName']), htmlspecialchars($_POST["lastName"]),
-                        htmlspecialchars($_POST["email"]), intval($_POST["phone"]),intval($_POST["class"]), );
+            if($_POST['group']){ $classID = (int)$_POST['group'];}
+            $student = new student(sanitize($_POST['firstName']), sanitize($_POST["lastName"]),
+                sanitize($_POST["email"]), intval(sanitize($_POST["phone"])),$classID);
             if (!empty($_POST['ID'])) {
                 $studentLoader->updateStudent($student);
             } else {
@@ -29,37 +34,33 @@ class studentController
         }
         // select the view
         if ($_GET["action"] === "edit") {
-
+            $groupLoader = new GroupLoader();
+            $classes = $groupLoader->fetchAllGroups();
             require 'view/includes/header.php';
             require 'view/editStudent.php';
             require 'view/includes/footer.php';
         }
         if ($_GET["action"] === "newStudent") {
-
+            $groupLoader = new GroupLoader();
+            $classes = $groupLoader->fetchAllGroups();
             require 'view/includes/header.php';
             require 'view/newStudent.php';
             require 'view/includes/footer.php';
         }
         if ($_GET["action"] === "overview") {
-
             require 'view/includes/header.php';
             require 'view/studentOverview.php';
             require 'view/includes/footer.php';
-
         }
         if ($_GET["action"] === "details") {
-
             $studentDetailed = $studentLoader->fetchDetailed();
             $studentGroup = $studentLoader->getMyGroup();
             $studentTeacher = $studentLoader->getMyTeacher();
-
             require 'view/includes/header.php';
             require 'view/studentDetailed.php';
             require 'view/includes/footer.php';
-
         }
         if (isset($_POST["searchbar"])) {
-
             require 'view/includes/header.php';
             require 'view/searchResultPage.php';
             require 'view/includes/footer.php';
