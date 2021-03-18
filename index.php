@@ -21,8 +21,8 @@ require "model/TeacherLoader.php";
 require 'Controller/teacherController.php';
 
 require 'Controller/searchController.php';
-require 'Model/SearchBar.php';
-require 'Model/SearchBarLoader.php';
+require 'model/SearchBar.php';
+require 'model/SearchBarLoader.php';
 
 require 'model/User.php';
 
