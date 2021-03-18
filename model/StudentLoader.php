@@ -61,7 +61,7 @@ class StudentLoader
     public function getMyGroup()
     {
         $pdo = openConnection();
-        $handle = $pdo->prepare('SELECT className from class c left join student s on c.classID = s.ClassID 
+        $handle = $pdo->prepare('SELECT className, s.classID as classID from class c right join student s on c.classID = s.ClassID 
                 where studentID = :id');
         $handle->bindValue(':id',$_GET['ID']);
         $handle->execute();
@@ -70,9 +70,9 @@ class StudentLoader
     public function getMyTeacher()
     {
         $pdo = openConnection();
-        $handle = $pdo->prepare("SELECT teacherID, concat_ws(' ',t.firstName,t.lastName) AS fullName from teacher t
-    left join class c on t.ClassID = c.classID
-    left join student s on c.classID = s.ClassID
+        $handle = $pdo->prepare("SELECT t.teacherID, concat_ws(' ',t.firstName,t.lastName) AS fullName from teacher t 
+left join class c on t.ClassID = c.classID
+   right join student s on c.classID = s.ClassID
     where studentID = :id");
         $handle->bindValue(':id',$_GET['ID']);
         $handle->execute();
