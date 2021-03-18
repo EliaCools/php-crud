@@ -13,7 +13,7 @@ if(isset($message)){
 }
 ?>
 
-
+<h2>New Student</h2>
 <div class="container">
     <h2><?php ?></h2>
     <form  method="post">

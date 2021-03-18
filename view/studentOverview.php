@@ -1,5 +1,6 @@
 <?php require 'view/includes/header.php'; ?>
-
+<h2>Student Overview</h2>
+<br>
 <div class="justify-content-center">
     <table class="table">
         <thead>
@@ -21,7 +22,7 @@
                    class="btn btn-info">Edit</a>
                 <form method="post" class=" d-inline ">
                     <input type="hidden" name="id" value=<?php echo $student ['studentID']?> >
-                    <input type="submit" name="delete" value="Delete" class="btn btn-secondary ">
+                    <input type="submit" name="delete" value="Delete" class="btn btn-danger">
                 </form>
                 <a href="?page=student&action=details&ID=<?php echo $student ['studentID']; ?>"
                    class="btn btn-success">Details</a>
@@ -30,9 +31,11 @@
         </tr>
         <?php endforeach; ?>
     </table>
+    <div class="container"
+
     <form method="post" action="/model/export.php">
-        <input type="submit" name="studentExport" value="CSV Export" class="btn btn-secondary">
+        <input type="submit" name="studentExport" value="CSV Export" class="btn btn-warning">
+        <a href="?page=student&action=newStudent" class="btn btn-primary">Add New Student</a>
     </form>
-    <a href="?page=student&action=newStudent" class="btn btn-success">add new student</a>
 
 </div>

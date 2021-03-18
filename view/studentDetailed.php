@@ -37,7 +37,7 @@ require 'includes/header.php'
            class="btn btn-info">Edit</a>
         <form method="post" class=" d-inline ">
             <input type="hidden" name="id" value=<?php echo $studentLoader->fetchDetailed()['studentID']?> >
-            <input type="submit" name="delete" value="Delete" class="btn btn-secondary ">
+            <input type="submit" name="delete" value="Delete" class="btn btn-danger">
         </form>
         <a href="?page=student&action=overview"
            class="btn btn-success">Back to Overview</a>
