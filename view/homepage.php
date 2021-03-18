@@ -9,5 +9,7 @@ Anything complex should be calculated in the model -->
     <p><a href="../index.php?page=student&action=overview"> to overview page</a> </p>
 
     <p>Put your content here.</p>
+
+    <?php var_dump($_POST);?>
 </section>
 <?php require 'includes/footer.php'?>

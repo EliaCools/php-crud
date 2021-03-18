@@ -19,7 +19,7 @@ class StudentLoader
     public function fetchAllStudents(): array
     {
         $pdo = openConnection();
-        $handle = $pdo->prepare('SELECT firstName,lastName, email, studentID FROM student');
+        $handle = $pdo->prepare('SELECT firstName,lastName, email, studentID FROM crud.student');
         $handle->execute();
         return $handle->fetchall();
     }
@@ -38,7 +38,7 @@ class StudentLoader
     public function updateStudent($firstName, $lastName, $email, $phone): void
     {
         $pdo = openConnection();
-        $handle = $pdo->prepare('UPDATE student set firstName =:firstName,lastName =:lastName, email =:email, phone =:phone 
+        $handle = $pdo->prepare('UPDATE crud.student set firstName =:firstName,lastName =:lastName, email =:email, phone =:phone 
         WHERE studentID = :id');
         $handle->bindValue(':id', $_POST['ID']);
         $handle->bindValue(':firstName', $firstName);
