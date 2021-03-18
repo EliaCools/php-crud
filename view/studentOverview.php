@@ -1,3 +1,5 @@
+<h2>Student Overview</h2>
+<br>
 <div class="justify-content-center">
     <table class="table">
         <thead>
@@ -28,6 +30,6 @@
     </table>
     <form method="post" action="/model/export.php">
         <input type="submit" name="studentExport" value="CSV Export" class="btn btn-warning">
-        <a href="?page=student&action=newStudent" class="btn btn-success">Add New Student</a>
+        <a href="?page=student&action=newStudent" class="btn btn-primary">Add New Student</a>
     </form>
 </div>
