@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 class studentController
 {
@@ -15,19 +15,15 @@ class studentController
             header("Location:?page=student&action=overview");
             exit();
         }
-
         //Edit and Add new
-        if(isset($_POST['run'])&& !empty($_POST['ID']) && !empty($_POST["firstName"]) && !empty($_POST["lastName"])) {
-            $studentLoader->updateStudent($_POST['firstName'],$_POST["lastName"],$_POST["email"],$_POST["phone"]);
-            header('location:/index.php?page=student&action=overview');
-            exit;
-        }
         if (isset($_POST['run']) && !empty($_POST["firstName"]) && !empty($_POST["lastName"])) {
-
             $student = new student(htmlspecialchars($_POST['firstName']), htmlspecialchars($_POST["lastName"]),
-                htmlspecialchars($_POST["email"]), intval($_POST["phone"]));
-
-            $studentLoader->insertStudent($student);
+                        htmlspecialchars($_POST["email"]), intval($_POST["phone"]));
+            if (!empty($_POST['ID'])) {
+                $studentLoader->updateStudent($student);
+            } else {
+                $studentLoader->insertStudent($student);
+            }
             header('location:/index.php?page=student&action=overview');
             exit;
         }
@@ -59,7 +55,7 @@ class studentController
             require 'view/includes/footer.php';
 
         }
-        if (isset($_POST["searchbar"])){
+        if (isset($_POST["searchbar"])) {
 
             require 'view/includes/header.php';
             require 'view/searchResultPage.php';
