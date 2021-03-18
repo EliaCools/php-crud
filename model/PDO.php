@@ -2,7 +2,7 @@
 
     function openConnection(): PDO
     {
-        $dbhost ="localhost";
+        $dbhost ="";
         $dbuser ="";
         $dbpass ="";
         $db ="crud";
