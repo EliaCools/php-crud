@@ -7,9 +7,7 @@ class searchController
 
         if (isset($_GET["search"])) {
             function addQuotes($string){
-
-                $betterstring = '\''.$string.'\'';
-                return $betterstring;
+                return '%'.$string. '%';
             }
 
             $searchLoader = new SearchBarLoader();
