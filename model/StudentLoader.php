@@ -3,7 +3,7 @@
 
 class StudentLoader
 {
-    public function insertStudent($firstName, $lastName, $email, $phone)
+    public function insertPerson($firstName, $lastName, $email, $phone)
     {
         $pdo = openConnection();
 
@@ -16,23 +16,35 @@ class StudentLoader
         $handle->execute();
     }
 
-        function fetchAllStudents()
-        {
-            $pdo = openConnection();
-            $handle = $pdo->prepare('SELECT firstName,lastName, email, studentID FROM crud.Student');
-            $handle->execute();
-            return $handle->fetchall();
-        }
+    public function fetchAllStudents(): array
+    {
+        $pdo = openConnection();
+        $handle = $pdo->prepare('SELECT firstName,lastName, email, studentID FROM student');
+        $handle->execute();
+        return $handle->fetchall();
+    }
 
-        function fetchDetailed()
-        {
-            $pdo = openConnection();
-            $handle = $pdo->prepare('SELECT firstName,lastName, email, studentID FROM crud.Student
+    function fetchDetailed()
+    {
+        $pdo = openConnection();
+        $handle = $pdo->prepare('SELECT concat_ws(" ",firstName,lastName)AS name, email, studentID FROM crud.Student
         where studentID = :id
         ');
-            $handle->bindValue('id', $_GET["ID"]);
-            $handle->execute();
-            return $handle->fetchall();
-        }
+        $handle->bindValue(':id', $_GET["ID"]);
+        $handle->execute();
+        return $handle->fetch();
+    }
 
+    public function updateStudent($firstName, $lastName, $email, $phone): void
+    {
+        $pdo = openConnection();
+        $handle = $pdo->prepare('UPDATE student set firstName =:firstName,lastName =:lastName, email =:email, phone =:phone 
+        WHERE studentID = :id');
+        $handle->bindValue(':id', $_POST['ID']);
+        $handle->bindValue(':firstName', $firstName);
+        $handle->bindValue(':lastName', $lastName);
+        $handle->bindValue(':email', $email);
+        $handle->bindValue(':phone', $phone);
+        $handle->execute();
+    }
 }

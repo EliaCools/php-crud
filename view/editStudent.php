@@ -2,19 +2,19 @@
 $studentLoader = new studentLoader;
 
 if(isset($_POST['run']) && !empty($_POST["firstName"]) && !empty($_POST["lastName"])) {
-    $studentLoader->insertPerson($_POST['firstName'],$_POST["lastName"],$_POST["email"],$_POST["phone"]);
+    $studentLoader->updateStudent($_POST['firstName'],$_POST["lastName"],$_POST["email"],$_POST["phone"]);
     header('location:/index.php?page=student&action=overview');
     exit;
 }
-?>
 
+?>
 
 <div class="container">
     <h2><?php ?></h2>
     <form  method="post">
         <div class="form-group col-4">
             <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" name="firstName">
+            <input type="text" class="form-control" id="firstName" name="firstName" >
         </div>
         <div class="form-group col-4">
             <label for="lastName">Last name</label>
@@ -37,9 +37,10 @@ if(isset($_POST['run']) && !empty($_POST["firstName"]) && !empty($_POST["lastNam
                 <?php endforeach;?>
             </select>
         </div>
-        <input type="hidden" name="ID" value=""/>
-        <button type="submit" class="btn btn-primary" id="submit" name="run">Submit</button>
+        <input type="hidden" name="ID" value="<?php echo $_GET['ID']?>" />
+        <button type="submit" class="btn btn-primary" id="submit" name="run">Edit</button>
     </form>
 </div>
 
 <?php require 'includes/footer.php' ?>
+
