@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 //include all your model files here
 require "model/Student.php";
-//require "model/studentLoader.php";
 require "model/Group.php";
 require "model/GroupLoader.php";
 

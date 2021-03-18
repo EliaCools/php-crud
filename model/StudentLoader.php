@@ -3,7 +3,7 @@
 
 class StudentLoader
 {
-    public function insertPerson($firstName, $lastName, $email, $phone)
+    public function insertStudent($firstName, $lastName, $email, $phone)
     {
         $pdo = openConnection();
 
@@ -35,12 +35,4 @@ class StudentLoader
             return $handle->fetchall();
         }
 
-    public function getStudents()
-    {
-        $pdo = openConnection();
-        $handle = $pdo->prepare('SELECT * FROM student');
-        $handle->execute();
-        return $handle->fetchAll();
-
-    }
 }
