@@ -3,16 +3,16 @@
 
 class StudentLoader
 {
-    public function insertStudent($firstName, $lastName, $email, $phone)
+    public function insertPerson(Student $student)
     {
         $pdo = openConnection();
 
         $sql = 'INSERT INTO crud.student (firstName, lastName, email, phone) VALUES (:firstName, :lastName, :email, :phone)';
         $handle = $pdo->prepare($sql);
-        $handle->bindValue(':firstName', $firstName);
-        $handle->bindValue(':lastName', $lastName);
-        $handle->bindValue(':email', $email);
-        $handle->bindValue(':phone', $phone);
+        $handle->bindValue(':firstName', $student->getFirstName());
+        $handle->bindValue(':lastName', $student->getLastName());
+        $handle->bindValue(':email', $student->getEmail());
+        $handle->bindValue(':phone', $student->getPhone());
         $handle->execute();
     }
 

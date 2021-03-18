@@ -1,8 +1,4 @@
-<?php
-
-require 'view/includes/header.php';
-var_dump($_POST);
-?>
+<?php require 'view/includes/header.php'; ?>
 
 <div class="justify-content-center">
     <table class="table">
@@ -14,9 +10,7 @@ var_dump($_POST);
             <th colspan="2">Action</th>
         </tr>
         </thead>
-        <?php
-        $studentLoader = new studentLoader;
-        foreach ($studentLoader->fetchAllStudents() as $student): ?>
+        <?php foreach ($allstudents as $student): ?>
 
         <tr>
             <td><?php echo $student["firstName"] ; ?> </td>
@@ -34,14 +28,7 @@ var_dump($_POST);
 
             </td>
         </tr>
-        <?php
-            if(isset($_POST['delete'])){
-                $studentLoader->deleteStudent();
-            header("Location:?page=student&action=overview");
-            exit();}
-        endforeach;
-
-        ?>
+        <?php endforeach; ?>
     </table>
     <form method="post" action="/model/export.php">
         <input type="submit" name="studentExport" value="CSV Export" class="btn btn-secondary">

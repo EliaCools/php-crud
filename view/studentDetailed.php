@@ -10,18 +10,18 @@ require 'includes/header.php'
             <h1>Student Information</h1>
         </div>
 
-        <?php $studentDetail= new studentLoader
+        <?php //$studentDetail= new studentLoader
 
         ?>
 
         <table class='table table-hover  table-bordered'>
             <tr>
                 <td>Name</td>
-                <td><?php echo $studentDetail->fetchDetailed()['name'];  ?></td>
+                <td><?php echo $studentLoader->fetchDetailed()['name'];  ?></td>
             </tr>
             <tr>
                 <td>Email</td>
-                <td><?php echo $studentDetail->fetchDetailed()['email']; ?></td>
+                <td><?php echo $studentLoader->fetchDetailed()['email']; ?></td>
             </tr>
             <tr>
                 <td>Class</td>
@@ -33,14 +33,21 @@ require 'includes/header.php'
             </tr>
             
         </table>
-        <a href="?page=student&action=edit&ID= <?php echo $studentDetail->fetchDetailed()['studentID']  ?>"
+        <a href="?page=student&action=edit&ID= <?php echo $studentLoader->fetchDetailed()['studentID']  ?>"
            class="btn btn-info">Edit</a>
-        <a href="?page=student&action=details&delete=<?php echo $studentDetail->fetchDetailed()['studentID']; ?>"
-           class="btn btn-danger">Delete</a>
+        <form method="post" class=" d-inline ">
+            <input type="hidden" name="id" value=<?php echo $studentLoader->fetchDetailed()['studentID']?> >
+            <input type="submit" name="delete" value="Delete" class="btn btn-secondary ">
+        </form>
         <a href="?page=student&action=overview"
            class="btn btn-success">Back to Overview</a>
     </div> <!-- end .container -->
 
-
+<?php
+if(isset($_POST['delete'])){
+    $studentDetail->deleteStudent();
+    header("Location:?page=student&action=overview");
+    exit();}
+?>
 
 <?php require 'includes/footer.php' ?>
