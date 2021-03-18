@@ -3,15 +3,15 @@
 
 class SearchBarLoader
 {
-    function searchUsers()
+    function searchUsers($searchValue): array
     {
+
         $pdo = openConnection();
-        $handle = $pdo->prepare('SELECT s.firstName,S.lastName,className from crud.student s
-    inner join crud.class c on s.ClassID = c.classID   
-    inner join crud.teacher t on c.classID = t.ClassID 
-    where t.teacherID = :id;
-        ');
-        $handle->bindValue(':id', $_GET["ID"]);
+        $handle = $pdo->prepare("SELECT firstName,lastName, email 
+                                        FROM crud.student 
+                                        WHERE firstName LIKE :searchValue
+                                        ");
+        $handle->bindValue(':searchValue', $searchValue);
         $handle->execute();
         return $handle->fetchAll();
     }

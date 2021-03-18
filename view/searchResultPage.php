@@ -1,5 +1,11 @@
 <?php
 require 'view/includes/header.php';
+
+var_dump($search);
+echo '<br>';
+
+echo '<br>';
+var_dump($searchResult);
 ?>
 
 <div class="justify-content-center">
@@ -13,19 +19,18 @@ require 'view/includes/header.php';
         </tr>
         </thead>
         <?php
-        $searchLoader = new SearchBarLoader();
-        foreach ($searchLoader->searchUsers() as $student): ?>
+        foreach ($searchResult as $result): ?>
 
             <tr>
-                <td><?php echo $student["firstName"] ; ?> </td>
-                <td><?php echo $student["lastName"]; ?> </td>
-                <td><?php echo $student["email"]; ?> </td>
+                <td><?php echo $result["firstName"] ; ?> </td>
+                <td><?php echo $result["lastName"]; ?> </td>
+                <td><?php echo $result["email"]; ?> </td>
                 <td>
-                    <a href="?page=student&action=edit&ID=<?php echo $student['studentID']  ?>"
+                    <a href="?page=student&action=edit&ID=<?php echo $result['studentID']  ?>"
                        class="btn btn-info">Edit</a>
-                    <a href="?page=student&action=overview&delete=<?php echo $student ['studentID']; ?>"
-                       class="btn btn-danger">Delete</a>
-                    <a href="?page=student&action=details&ID=<?php echo $student ['studentID']; ?>"
+                    <a href="?page=student&action=overview&delete=<?php echo $result ['studentID']; ?>"
+                       class="btn btn-danger">Delete</a>+
+                    <a href="?page=student&action=details&ID=<?php echo $result ['studentID']; ?>"
                        class="btn btn-success"">Details</a>
 
                 </td>

@@ -42,7 +42,7 @@ if(isset($_GET['page']) && $_GET['page'] === 'teacher') {
 if(isset($_GET['page']) && $_GET['page'] === 'group') {
     $controller = new groupController();
 }
-if(isset($_GET['page']) && $_GET['page'] === 'searchbar') {
+if(isset($_GET['search'])) {
     $controller = new searchController();
 }
 
