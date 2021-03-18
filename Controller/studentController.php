@@ -46,5 +46,14 @@ class studentController
         if ($_GET["action"] == "details") {
             require 'view/studentDetailed.php';
         }
+
+        if (isset($_POST["searchbar"])){
+            require 'view/searchResultPage.php';
+        }
+
+   //     if ($_GET["page"] == "student" && $_GET["action"] == "detailedview" && $_GET["action"]=='edit') {
+   //         require 'view/studentDetails.php';
+   //         require 'view/newStudent.php.php';
+   //     }
     }
 }

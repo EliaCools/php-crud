@@ -22,6 +22,10 @@ require 'Controller/groupController.php';
 require 'Controller/teacherController.php';
 require 'model/User.php';
 
+require 'Controller/searchController.php';
+require 'Model/SearchBar.php';
+require 'Model/SearchBarLoader.php';
+
 //you could write a simple IF here based on some $_GET or $_POST vars, to choose your controller
 //this file should never be more than 20 lines of code!
 
@@ -37,6 +41,9 @@ if(isset($_GET['page']) && $_GET['page'] === 'teacher') {
 }
 if(isset($_GET['page']) && $_GET['page'] === 'group') {
     $controller = new groupController();
+}
+if(isset($_GET['page']) && $_GET['page'] === 'searchbar') {
+    $controller = new searchController();
 }
 
 
