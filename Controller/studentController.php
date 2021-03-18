@@ -4,7 +4,7 @@ declare(strict_types = 1);
 class studentController
 {
 
-    public function render(array $GET, array $POST)
+    public function render(array $GET, array $POST) : void
     {
 
         $studentLoader = new studentLoader;
@@ -26,9 +26,8 @@ class studentController
 
             $student = new student(htmlspecialchars($_POST['firstName']), htmlspecialchars($_POST["lastName"]),
                 htmlspecialchars($_POST["email"]), intval($_POST["phone"]));
-            echo var_dump($student);
 
-            $studentLoader->insertPerson($student);
+            $studentLoader->insertStudent($student);
             header('location:/index.php?page=student&action=overview');
             exit;
         }

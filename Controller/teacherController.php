@@ -4,7 +4,7 @@ declare(strict_types = 1);
 class teacherController
 {
 
-    public function render(array $GET, array $POST)
+    public function render(array $GET, array $POST) : void
     {
 
         $teacherLoader = new TeacherLoader();
@@ -19,7 +19,7 @@ class teacherController
         //Edit and Add new
         if(isset($_POST['run'])&& !empty($_POST['ID']) && !empty($_POST["firstName"]) && !empty($_POST["lastName"])) {
             $teacherLoader->updateTeacher($_POST['firstName'],$_POST["lastName"],$_POST["email"],$_POST["phone"]);
-            header('location:/index.php?page=student&action=overview');
+            header('location:/index.php?page=teacher&action=overview');
             exit;
         }
         if (isset($_POST['run']) && !empty($_POST["firstName"]) && !empty($_POST["lastName"])) {
@@ -31,14 +31,7 @@ class teacherController
             header('location:/index.php?page=teacher&action=overview');
             exit;
         }
-
-
         //select the view
-        if ($_GET["page"] == "teacher" && $_GET["action"] == "edit") {
-            $loader = new teacherLoader;
-            require 'view/includes/header.php';
-            $teacher = $loader->fetch();
-        }
         if ($_GET["action"] === "edit") {
 
             require 'view/includes/header.php';

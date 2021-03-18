@@ -2,8 +2,8 @@
 
 function openConnection(): PDO
 {
-    $dbhost = "localhost";
-    $dbuser = "root";
+    $dbhost = "";
+    $dbuser = "";
     $dbpass = "";
     $db = "crud";
 
