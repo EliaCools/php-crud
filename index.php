@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 
-//include all your model files here
+
 require "model/PDO.php";
 require 'Controller/HomepageController.php';
 require 'Controller/InfoController.php';
@@ -16,15 +16,15 @@ require "model/Group.php";
 require "model/GroupLoader.php";
 require 'Controller/groupController.php';
 
-
-
-//include all your controllers here
+require "model/Teacher.php";
+require "model/TeacherLoader.php";
 require 'Controller/teacherController.php';
-require 'model/User.php';
 
 require 'Controller/searchController.php';
 require 'Model/SearchBar.php';
 require 'Model/SearchBarLoader.php';
+
+require 'model/User.php';
 
 //you could write a simple IF here based on some $_GET or $_POST vars, to choose your controller
 //this file should never be more than 20 lines of code!
@@ -45,7 +45,6 @@ if(isset($_GET['page']) && $_GET['page'] === 'group') {
 if(isset($_GET['search'])) {
     $controller = new searchController();
 }
-
 
 $controller->render($_GET, $_POST);
 
