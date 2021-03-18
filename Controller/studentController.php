@@ -6,10 +6,10 @@ class studentController
 
     public function render(array $GET, array $POST)
     {
-        //you should not echo anything inside your controller - only assign vars here
-        // then the view will actually display them.
+
         $studentLoader = new studentLoader;
         $allstudents = $studentLoader->fetchAllStudents();
+
         if (isset($_POST['delete'])) {
             $studentLoader->deleteStudent();
             header("Location:?page=student&action=overview");

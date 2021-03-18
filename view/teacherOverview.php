@@ -25,7 +25,7 @@
                     </form>
 
                     <a href="?page=student&action=details&ID=<?php echo $teacher['teacherID']; ?>"
-                       class="btn btn-success"">Details</a>
+                       class="btn btn-success">Details</a>
 
                 </td>
             </tr>
