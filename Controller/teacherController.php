@@ -6,6 +6,11 @@ class teacherController
 
     public function render(array $GET, array $POST) : void
     {
+        function sanitize($data): string
+        {     $data = trim($data);     $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
 
         $teacherLoader = new TeacherLoader();
         $teachers = $teacherLoader->fetchAllTeachers();
@@ -17,20 +22,18 @@ class teacherController
         }
 
         //Edit and Add new
-        if(isset($_POST['run'])&& !empty($_POST['ID']) && !empty($_POST["firstName"]) && !empty($_POST["lastName"])) {
-            $teacherLoader->updateTeacher($_POST['firstName'],$_POST["lastName"],$_POST["email"],$_POST["phone"]);
+        if(isset($_POST['run'])  && !empty($_POST["firstName"]) && !empty($_POST["lastName"])) {
+            $teacher = new Teacher(sanitize($_POST['firstName']), sanitize($_POST["lastName"]),
+                sanitize($_POST["email"]), intval(sanitize($_POST["phone"])));
+            if(!empty($_POST['ID'])){
+                $teacherLoader->updateTeacher($teacher);
+            }else{
+                $teacherLoader->insertTeacher($teacher);
+            }
             header('location:/index.php?page=teacher&action=overview');
             exit;
         }
-        if (isset($_POST['run']) && !empty($_POST["firstName"]) && !empty($_POST["lastName"])) {
 
-            $teacher = new Teacher(htmlspecialchars($_POST['firstName']), htmlspecialchars($_POST["lastName"]),
-                htmlspecialchars($_POST["email"]), intval($_POST["phone"]));
-
-            $teacherLoader->insertTeacher($teacher);
-            header('location:/index.php?page=teacher&action=overview');
-            exit;
-        }
         //select the view
         if ($_GET["action"] === "edit") {
 

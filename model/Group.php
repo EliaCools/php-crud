@@ -4,16 +4,16 @@
 class Group
 {
     private string $name;
-    private string $subject;
     private string $location;
-    private string $startDate;
+    private string $subject;
 
-    public function __construct($name,$subject,$location,$startDate){
+
+
+    public function __construct($name,$location,$subject){
 
         $this->name=$name;
-        $this->subject=$subject;
         $this->location=$location;
-        $this->startDate=$startDate;
+        $this->subject=$subject;
 
     }
     public function getName(): string
@@ -24,11 +24,6 @@ class Group
     public function getLocation(): string
     {
         return $this->location;
-    }
-
-    public function getStartDate(): string
-    {
-        return $this->startDate;
     }
 
     public function getSubject(): string

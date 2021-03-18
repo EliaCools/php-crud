@@ -6,6 +6,11 @@ class studentController
 
     public function render(array $GET, array $POST) : void
     {
+        function sanitize($data): string
+        {     $data = trim($data);     $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
 
         $studentLoader = new studentLoader;
         $allstudents = $studentLoader->fetchAllStudents();
@@ -17,8 +22,9 @@ class studentController
         }
         //Edit and Add new
         if (isset($_POST['run']) && !empty($_POST["firstName"]) && !empty($_POST["lastName"])) {
-            $student = new student(htmlspecialchars($_POST['firstName']), htmlspecialchars($_POST["lastName"]),
-                        htmlspecialchars($_POST["email"]), intval($_POST["phone"]));
+            $student = new student(sanitize($_POST['firstName']), sanitize($_POST["lastName"]),
+                sanitize($_POST["email"]), intval(sanitize($_POST["phone"])));
+
             if (!empty($_POST['ID'])) {
                 $studentLoader->updateStudent($student);
             } else {
