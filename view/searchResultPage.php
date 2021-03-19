@@ -13,12 +13,13 @@ require 'view/includes/header.php';
         </tr>
         </thead>
         <?php
-        foreach ($searchResult as $result): ?>
+        foreach ($searchResult as $result): var_dump($result); ?>
 
             <tr>
                 <td><?php echo $result["firstName"] ; ?> </td>
                 <td><?php echo $result["lastName"]; ?> </td>
                 <td><?php echo $result["email"]; ?> </td>
+               <!-- <td><?php //echo  ; //todo look into this union thing ?> </td> -->
                 <td>
 
                     <a href="?page=student&action=details&ID=<?php echo $result ['studentID']; ?>"
