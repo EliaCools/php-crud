@@ -9,24 +9,25 @@ require 'view/includes/header.php';
             <th>Name</th>
             <th>Last Name</th>
             <th>Email</th>
+            <th>Function</th>
             <th colspan="2">Action</th>
         </tr>
         </thead>
         <?php
-        foreach ($searchResult as $result): var_dump($result); ?>
+        foreach ($searchResult as $result): ?>
 
             <tr>
                 <td><?php echo $result["firstName"] ; ?> </td>
                 <td><?php echo $result["lastName"]; ?> </td>
                 <td><?php echo $result["email"]; ?> </td>
-               <!-- <td><?php //echo  ; //todo look into this union thing ?> </td> -->
+                <td><?php echo $result['type']; ?> </td>
                 <td>
 
-                    <a href="?page=student&action=details&ID=<?php echo $result ['studentID']; ?>"
+
+                    <a href="?page=<?php echo $result['type'] ?>&action=details&ID=<?php echo $result['ID']; ?>"
                        class="btn btn-success">Details</a>
 
                 </td>
             </tr>
         <?php endforeach; ?>
     </table>
-    <a href="?page=student&action=newStudent" class="btn btn-success">add new student</a>

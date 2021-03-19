@@ -13,16 +13,23 @@ class teacherController
         }
         $teacherLoader = new TeacherLoader();
         $teachers = $teacherLoader->fetchAllTeachers();
-        $teacherLoader->fetchAssignedStudents();
 
-        if (isset($_POST['delete'])) {
+        if (isset($_POST['delete'],$_POST['ID'])) {
+            if(!$teacherLoader->checkClass()){
                 $teacherLoader->deleteTeacher();
                 header("Location:?page=teacher&action=overview");
                 exit();
+            }
         }
         //Edit and Add new
         if(isset($_POST['run'])  && !empty($_POST["firstName"]) && !empty($_POST["lastName"])) {
-            if($_POST['group']){ $classID = (int)$_POST['group'];}
+            if($_POST['group']){
+                if($_POST['group'] === 'null'){
+                    $classID = null;
+                }else{
+                    $classID = (int)$_POST['group'];
+                }
+            }
             $teacher = new Teacher(sanitize($_POST['firstName']), sanitize($_POST["lastName"]),
                 sanitize($_POST["email"]), intval(sanitize($_POST["phone"])),$classID);
             if(!empty($_POST['ID'])){

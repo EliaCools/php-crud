@@ -49,21 +49,18 @@ class GroupLoader
     public function fetchDetailed(): array
     {
         $pdo = openConnection();
-        $sql = 'SELECT className, classLocation 
+        $sql = 'SELECT classID, className, classLocation, subject 
                 from crud.class 
-                JOIN crud.student s on class.classID = s.ClassID
-                JOIN crud.teacher t on class.classID = t.ClassID
-                WHERE class.classID = :id
-                ORDER BY className';
+                WHERE class.classID = :id';
         $handle = $pdo->prepare($sql);
         $handle->bindValue(':id', $_GET["ID"]);
         $handle->execute();
         return $handle->fetch();
     }
 
-        public function getMyTeacher(){
+    public function getMyTeacher(){
         $pdo = openConnection();
-        $sql = 'SELECT concat_ws(" ", t.firstName, t.lastName) Teacher 
+        $sql = 'SELECT concat_ws(" ", t.firstName, t.lastName) Teacher, teacherID 
                 from crud.class
                 JOIN crud.teacher t on class.classID = t.ClassID
                 WHERE class.classID = :id';
@@ -75,15 +72,13 @@ class GroupLoader
 
     public function getMyStudents(): array {
         $pdo = openConnection();
-        $sql = 'SELECT s.firstName StudentNames 
-                from crud.class
-                RIGHT JOIN crud.student s on class.classID = s.ClassID
-                WHERE class.classID = :id
-                ORDER BY class.classID';
+        $sql = 'SELECT concat_ws(" ",s.firstName, s.lastName) AS studentNames, s.studentID AS studentID 
+                FROM class left join student s on class.classID = s.ClassID 
+                WHERE class.classID = :id';
         $handle = $pdo->prepare($sql);
         $handle->bindValue(':id',$_GET['ID']);
         $handle->execute();
-        return $handle->fetch();
+        return $handle->fetchall();
     }
 
 
