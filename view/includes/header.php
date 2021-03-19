@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
         <div class="container-fluid">
             <!--            toggle navbar button-->
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="?page=index.php"><img src="view/includes/img/becodeLogo.png" width="45px" alt="becode"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -26,10 +26,10 @@
                         <a class="nav-link px-4" href="?page=student&action=overview">Students</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4" href="?page=teacher&action=overview"">Teachers</a>
+                        <a class="nav-link px-4" href="?page=teacher&action=overview">Teachers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4" href="?page=group&action=overview"">Classes</a>
+                        <a class="nav-link px-4" href="?page=group&action=overview">Classes</a>
                     </li>
 
                 </ul>

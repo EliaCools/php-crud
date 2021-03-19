@@ -8,7 +8,7 @@ Anything complex should be calculated in the model -->
     <p><a href="../index.php?page=info">To info page</a></p>
     <p><a href="../index.php?page=student&action=newStudent">Add a new student</a> </p>
     <p><a href="../index.php?page=teacher&action=newTeacher"> Add a new teacher</a> </p>
-    <p><a href="../index.php?page=class&action=newClass"> Add a new class</a> </p>
+    <p><a href="../index.php?page=group&action=newGroup"> Add a new class</a> </p>
 
     <p>Please leave.</p>
 
