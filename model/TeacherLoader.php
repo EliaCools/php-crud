@@ -39,7 +39,7 @@ class TeacherLoader
        public function fetchAssignedStudents(): array
     {
         $pdo = openConnection();
-        $handle = $pdo->prepare('SELECT concat_ws(" ",s.firstName,s.lastName)  AS studentnames, s.studentID AS studentID FROM crud.teacher t
+        $handle = $pdo->prepare('SELECT concat_ws(" " ,s.firstName,s.lastName)  AS studentnames, s.studentID AS studentID FROM crud.teacher t
         left join crud.student s on t.ClassID = s.ClassID
         where t.teacherID  = :id');
         $handle->bindValue('id', $_GET["ID"]);
