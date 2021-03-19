@@ -19,7 +19,7 @@
             </tr>
             <tr>
                 <td>Assigned Teacher</td>
-                <td><a href="#"><?php echo $studentTeacher['fullName'] ?? 'no teacher';  ?></a></td>
+                <td><a href="?page=teacher&action=<?php echo isset($studentTeacher['teacherID']) ? 'details&ID='.$studentTeacher['teacherID'] : 'overview'?>"><?php echo $studentTeacher['fullName'] ?? 'no teacher';  ?></a></td>
             </tr>
         </table>
         <a href="?page=student&action=edit&ID= <?php echo $studentDetailed['studentID']  ?>"
