@@ -5,19 +5,19 @@
         <div class="form-group col-4">
 
             <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" name="firstName" >
+            <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo $teacherDetailed['firstName'] ?>">
         </div>
         <div class="form-group col-4">
             <label for="lastName">Last name</label>
-            <input type="text" class="form-control" id="lastName" name="lastName">
+            <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo $teacherDetailed['lastName'] ?>">
         </div>
         <div class="form-group col-4">
             <label for="email">Email address</label>
-            <input type="text" class="form-control" id="email" name="email">
+            <input type="text" class="form-control" id="email" name="email" value="<?php echo $teacherDetailed['email'] ?>">
         </div>
         <div class="form-group col-4">
             <label for="phone">Phone number:</label>
-            <input type="text" class="form-control" id="phone" name="phone">
+            <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $teacherDetailed['phone'] ?>">
         </div>
         <div class="form-group col-4">
             <label for="sel1">Select list:</label>

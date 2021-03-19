@@ -34,7 +34,7 @@ class groupController
 
         // select the view
         if ($_GET["action"] === "edit") {
-
+            $groupDetailed = $groupLoader->fetchDetailed();
             require 'view/includes/header.php';
             require 'view/editGroup.php';
             require 'view/includes/footer.php';

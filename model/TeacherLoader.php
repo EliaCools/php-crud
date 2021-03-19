@@ -42,6 +42,17 @@ class TeacherLoader
         return $handle->fetch();
     }
 
+    public function fetchForEdit():array
+    {
+        $pdo = openConnection();
+        $handle = $pdo->prepare('SELECT firstName,lastName , email, phone FROM crud.teacher
+        where teacherID = :id');
+        $handle->bindValue('id', $_GET["ID"]);
+        $handle->execute();
+        return $handle->fetch();
+    }
+
+
        public function fetchAssignedStudents(): array
     {
         $pdo = openConnection();

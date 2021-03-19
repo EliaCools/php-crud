@@ -35,6 +35,15 @@ class StudentLoader
         $handle->execute();
         return $handle->fetch();
     }
+    public function fetchForEdit():array
+    {
+        $pdo = openConnection();
+        $handle = $pdo->prepare('SELECT firstName,lastName , email, phone FROM crud.student
+        where studentID = :id');
+        $handle->bindValue('id', $_GET["ID"]);
+        $handle->execute();
+        return $handle->fetch();
+    }
 
     public function updateStudent(Student $student): void
     {

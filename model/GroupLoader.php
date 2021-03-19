@@ -58,6 +58,7 @@ class GroupLoader
         return $handle->fetch();
     }
 
+
     public function getMyTeacher(){
         $pdo = openConnection();
         $sql = 'SELECT concat_ws(" ", t.firstName, t.lastName) Teacher, teacherID 

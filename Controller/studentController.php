@@ -36,6 +36,7 @@ class studentController
         if ($_GET["action"] === "edit") {
             $groupLoader = new GroupLoader();
             $classes = $groupLoader->fetchAllGroups();
+            $studentDetailed = $studentLoader->fetchForEdit();
             require 'view/includes/header.php';
             require 'view/editStudent.php';
             require 'view/includes/footer.php';

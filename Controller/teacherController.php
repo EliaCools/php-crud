@@ -44,6 +44,7 @@ class teacherController
         if ($_GET["action"] === "edit") {
             $groupLoader = new GroupLoader();
             $classes = $groupLoader->fetchAllGroups();
+            $teacherDetailed = $teacherLoader->fetchForEdit();
             require 'view/includes/header.php';
             require 'view/editTeacher.php';
             require 'view/includes/footer.php';
