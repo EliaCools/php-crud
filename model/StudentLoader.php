@@ -72,7 +72,7 @@ class StudentLoader
         $pdo = openConnection();
         $handle = $pdo->prepare("SELECT t.teacherID, concat_ws(' ',t.firstName,t.lastName) AS fullName from teacher t 
 left join class c on t.ClassID = c.classID
-   right join student s on c.classID = s.ClassID
+   left join student s on c.classID = s.ClassID
     where studentID = :id");
         $handle->bindValue(':id',$_GET['ID']);
         $handle->execute();

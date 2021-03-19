@@ -5,6 +5,11 @@ class groupController
 {
     public function render(array $GET, array $POST)
     {
+        function sanitize($data): string
+        {     $data = trim($data);     $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
         $groupLoader = new groupLoader();
         $groups = $groupLoader-> fetchAllGroups();
 
@@ -15,9 +20,9 @@ class groupController
         }
 
         //Edit and Add new
-        if (isset($_POST['run']) && !empty($_POST["name"]) && !empty($_POST["location"])&& !empty($_POST["subject"])) {
-            $group = new group(htmlspecialchars($_POST["name"]), htmlspecialchars($_POST["location"]),
-                htmlspecialchars($_POST["subject"]));
+        if (isset($_POST['run']) && !empty($_POST["className"]) && !empty($_POST["location"])&& !empty($_POST["subject"])) {
+            $group = new group(sanitize($_POST["className"]), sanitize($_POST["location"]),
+                sanitize($_POST["subject"]));
             if (!empty($_POST['ID'])) {
                 $groupLoader->updateGroup($group);
             } else {
@@ -48,8 +53,9 @@ class groupController
 
         }
         if ($_GET["action"] === "details") {
-
-            $studentDetailed = $groupLoader->fetchDetailed();
+            $groupStudents = $groupLoader->getMyStudents();
+            $groupTeacher = $groupLoader->getMyTeacher();
+            $groupDetailed = $groupLoader->fetchDetailed();
             require 'view/includes/header.php';
             require 'view/groupDetailed.php';
             require 'view/includes/footer.php';
