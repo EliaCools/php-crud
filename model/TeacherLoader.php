@@ -48,8 +48,6 @@ class TeacherLoader
     }
 
 
-
-
     public function updateTeacher(Teacher $teacher): void
     {
         $pdo = openConnection();

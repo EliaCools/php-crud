@@ -21,7 +21,7 @@
                     <a href="?page=teacher&action=edit&ID=<?php echo $teacher['teacherID']; ?>"
                        class="btn btn-info">Edit</a>
                     <form method="post" class=" d-inline ">
-                        <input type="hidden" name="id" value=<?php echo $teacher['teacherID']; ?>>
+                        <input type="hidden" name="ID" value=<?php echo $teacher['teacherID']; ?>>
                         <input type="submit" name="delete" value="Delete" class="btn btn-danger">
                     </form>
 

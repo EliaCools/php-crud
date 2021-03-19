@@ -7,10 +7,10 @@ class SearchBarLoader
     {
 
         $pdo = openConnection();
-        $handle = $pdo->prepare("SELECT firstName,lastName, email, studentID AS studentID FROM crud.student 
+        $handle = $pdo->prepare("SELECT firstName,lastName, email, studentID as ID, 'student' AS type FROM crud.student 
                                         WHERE firstName LIKE :searchValue
                                         UNION
-                                        SELECT firstName,lastName, email, teacherID AS teacherID FROM crud.teacher 
+                                        SELECT firstName,lastName, email, teacherID as ID, 'teacher' AS type FROM crud.teacher 
                                         WHERE firstName LIKE :searchValue");
         $handle->bindValue(':searchValue', $searchValue);
         $handle->execute();

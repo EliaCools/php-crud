@@ -17,8 +17,7 @@
             <td>
             <?php
             foreach ($assignedStudents  as $students) {
-           $studentID = $students["studentID"];
-            echo  '<a href="?page=student&action=details&ID='. $studentID . ' "> '  . $students["studentnames"] . ' </a> <br>';
+            echo  '<a href="?page=student&action=details&ID='. $students["studentID"] . ' "> '  . $students["studentnames"] . ' </a> <br>';
             }?>
             </td>
         </tr>

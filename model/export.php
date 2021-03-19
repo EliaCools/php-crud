@@ -29,9 +29,9 @@ if(isset($_POST['teacherExport']))
     fclose($output);
 }
             //class export
-if(isset($_POST['classExport']))
+if(isset($_POST['groupExport']))
 {
-    $e = openConnection()->query('SELECT classID, className, location FROM class');
+    $e = openConnection()->query('SELECT classID, className, classLocation, subject FROM class');
 
     header('Content-Type: text/csv; charset=utf-8');
     header('Content-Disposition: attachment; filename=data.csv');
