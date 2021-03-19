@@ -77,7 +77,7 @@ class GroupLoader
         $pdo = openConnection();
         $sql = 'SELECT s.firstName StudentNames 
                 from crud.class
-                JOIN crud.student s on class.classID = s.ClassID
+                RIGHT JOIN crud.student s on class.classID = s.ClassID
                 WHERE class.classID = :id
                 ORDER BY class.classID';
         $handle = $pdo->prepare($sql);
