@@ -15,7 +15,7 @@
             </tr>
             <tr>
                 <td>Class</td>
-                <td><a href="?page=group&action=details<?php echo isset$studentGroup['classID'] ? '&ID=' . $studentGroup['classID'] : "" ?>"><?php echo $studentGroup['className'] ?? 'no class'; ?></a></td>
+                <td><a href="?page=group&action=details<?php echo isset($studentGroup['classID']) ? '&ID=' . $studentGroup['classID'] : "" ?>"><?php echo $studentGroup['className'] ?? 'no class'; ?></a></td>
             </tr>
             <tr>
                 <td>Assigned Teacher</td>
