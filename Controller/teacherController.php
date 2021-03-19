@@ -15,10 +15,12 @@ class teacherController
         $teachers = $teacherLoader->fetchAllTeachers();
 
 
-        if (isset($_POST['delete'])) {
+        if (isset($_POST['delete'],$_POST['ID'])) {
+            if(!$teacherLoader->checkClass()){
                 $teacherLoader->deleteTeacher();
                 header("Location:?page=teacher&action=overview");
                 exit();
+            }
         }
         //Edit and Add new
         if(isset($_POST['run'])  && !empty($_POST["firstName"]) && !empty($_POST["lastName"])) {
@@ -31,7 +33,6 @@ class teacherController
                 $teacherLoader->updateTeacher($teacher);
             }else{
                 $teacherLoader->insertTeacher($teacher);
-                var_dump($_POST);
             }
              header('location:/index.php?page=teacher&action=overview');
              exit;

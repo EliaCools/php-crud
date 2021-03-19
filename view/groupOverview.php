@@ -29,7 +29,7 @@
         <?php endforeach;?>
     </table>
     <form method="post" action="/model/export.php">
-        <input type="submit" name="studentExport" value="CSV Export" class="btn btn-warning">
+        <input type="submit" name="groupExport" value="CSV Export" class="btn btn-warning">
         <a href="?page=group&action=newGroup" class="btn btn-primary">Add New Group</a>
     </form>
 </div>
