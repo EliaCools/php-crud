@@ -13,7 +13,7 @@ class teacherController
         }
         $teacherLoader = new TeacherLoader();
         $teachers = $teacherLoader->fetchAllTeachers();
-        $teacherLoader->fetchAssignedStudents();
+
 
         if (isset($_POST['delete'])) {
                 $teacherLoader->deleteTeacher();
@@ -22,16 +22,19 @@ class teacherController
         }
         //Edit and Add new
         if(isset($_POST['run'])  && !empty($_POST["firstName"]) && !empty($_POST["lastName"])) {
-            if($_POST['group']){ $classID = (int)$_POST['group'];}
+            if($_POST['group']){$classID = (int)$_POST['group'];}
+
             $teacher = new Teacher(sanitize($_POST['firstName']), sanitize($_POST["lastName"]),
                 sanitize($_POST["email"]), intval(sanitize($_POST["phone"])),$classID);
+
             if(!empty($_POST['ID'])){
                 $teacherLoader->updateTeacher($teacher);
             }else{
                 $teacherLoader->insertTeacher($teacher);
+                var_dump($_POST);
             }
-            header('location:/index.php?page=teacher&action=overview');
-            exit;
+             header('location:/index.php?page=teacher&action=overview');
+             exit;
         }
         //select the view
         if ($_GET["action"] === "edit") {

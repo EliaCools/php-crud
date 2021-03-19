@@ -8,9 +8,9 @@ class Student
     protected string $lastName;
     protected string $email;
     protected int $phone;
-    protected int $classID;
+    protected  $classID;
 
-    public function __construct(string $firstName, string $lastName, string $email, int $phone,int $classID)
+    public function __construct(string $firstName, string $lastName, string $email, int $phone, $classID)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
@@ -45,7 +45,7 @@ class Student
     }
 
 
-    public function getClassID(): int
+    public function getClassID(): int|null
     {
         return $this->classID;
     }

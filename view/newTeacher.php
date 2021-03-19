@@ -20,8 +20,9 @@
         <div class="form-group col-4">
             <label for="sel1">Select list:</label>
             <select name="group" class="form-control col-4" id="sel1">
+                <option value="0"> no class</option>
                 <?php foreach($classes AS $class):?>
-                    <option value="<?php echo $class['classID']?>"><?php echo $class['className'] ?></option>
+                    <option value=" <?php echo $class['classID']?>"><?php echo $class['className'] ?></option>
                 <?php endforeach;?>
             </select>
         </div>
