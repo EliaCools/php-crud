@@ -29,12 +29,26 @@ class TeacherLoader
     public function fetchDetailed(): array
     {
         $pdo = openConnection();
-        $handle = $pdo->prepare('SELECT firstName,lastName, email, teacherID FROM crud.teacher
+        $handle = $pdo->prepare('SELECT concat_ws(" ",firstName,lastName) AS name , email, teacherID FROM crud.teacher
         where teacherID = :id');
+        $handle->bindValue('id', $_GET["ID"]);
+        $handle->execute();
+        return $handle->fetch();
+    }
+
+       public function fetchAssignedStudents(): array
+    {
+        $pdo = openConnection();
+        $handle = $pdo->prepare('SELECT concat_ws(" ",s.firstName,s.lastName)  AS studentnames, s.studentID AS studentID FROM crud.teacher t
+        left join crud.student s on t.ClassID = s.ClassID
+        where t.teacherID  = :id');
         $handle->bindValue('id', $_GET["ID"]);
         $handle->execute();
         return $handle->fetchall();
     }
+
+
+
 
     public function updateTeacher(Teacher $teacher): void
     {

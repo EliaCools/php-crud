@@ -13,6 +13,7 @@ class teacherController
         }
         $teacherLoader = new TeacherLoader();
         $teachers = $teacherLoader->fetchAllTeachers();
+        $teacherLoader->fetchAssignedStudents();
 
         if (isset($_POST['delete'])) {
                 $teacherLoader->deleteTeacher();
@@ -54,6 +55,7 @@ class teacherController
         }
         if ($_GET["action"] === "details") {
             $teacherDetailed = $teacherLoader->fetchDetailed();
+            $assignedStudents = $teacherLoader->fetchAssignedStudents();
             require 'view/includes/header.php';
             require 'view/teacherDetailed.php';
             require 'view/includes/footer.php';
