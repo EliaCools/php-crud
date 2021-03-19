@@ -68,11 +68,20 @@ class TeacherLoader
         $handle->execute();
     }
 
+    public function checkClass(): array
+    {
+        $pdo = openConnection();
+        $handle= $pdo->prepare('SELECT classID FROM teacher where teacherID =:id');
+        $handle->bindValue(':id',$_POST['ID']);
+        $handle->execute();
+        return $handle->fetch();
+    }
+
     public function deleteTeacher():void
     {
         $pdo = openConnection();
         $handle = $pdo->prepare('DELETE FROM crud.teacher WHERE teacherID = :id ');
-        $handle->bindValue(':id',$_POST['id']);
+        $handle->bindValue(':id',$_POST['ID']);
         $handle->execute();
     }
 }

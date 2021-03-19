@@ -1,4 +1,4 @@
-<h2>Student Overview</h2>
+<h2>Students</h2>
 <br>
 <div class="justify-content-center">
     <table class="table">

@@ -16,10 +16,13 @@ class teacherController
 
 
         if (isset($_POST['delete'],$_POST['ID'])) {
-            if(!$teacherLoader->checkClass()){
+            var_dump($teacherLoader->checkClass());
+            if($teacherLoader->checkClass()['classID']=== null){
                 $teacherLoader->deleteTeacher();
                 header("Location:?page=teacher&action=overview");
                 exit();
+            }else{
+                $errormsg = "Cannot delete teacher assigned to a class";
             }
         }
         //Edit and Add new

@@ -31,7 +31,9 @@
                 </td>
             </tr>
         <?php endforeach; ?>
+        <p><?php echo $error?? "" ?></p>
     </table>
+
 
     <form method="post" action="/model/export.php">
         <input type="submit" name="teacherExport" value="CSV Export" class="btn btn-warning">

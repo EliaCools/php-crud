@@ -1,11 +1,11 @@
-<h2>Group Overview</h2>
+<h2>Class Overview</h2>
 <br>
 <div class="justify-content-center">
     <table class="table">
         <thead>
         <tr>
-            <th>Group Name</th>
-            <th>Group Location</th>
+            <th>Class name</th>
+            <th>Location</th>
             <th>Subject</th>
             <th colspan="2">Action</th>
         </tr>

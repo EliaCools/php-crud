@@ -1,6 +1,4 @@
-<?php var_dump($_POST);?>
-<?php echo '<br>';?>
-<?php var_dump($_GET['ID']);?>
+
 <div class="container">
     <h2>Edit Class</h2>
     <form method="post">
